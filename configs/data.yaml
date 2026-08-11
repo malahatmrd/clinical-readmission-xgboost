@@ -1,0 +1,20 @@
+﻿project:
+  name: clinical-readmission-xgboost
+  random_seed: 42
+
+data:
+  dataset_id: 296
+  dataset_name: Diabetes 130-US Hospitals for Years 1999-2008
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+
+target:
+  source_column: readmitted
+  positive_label: "<30"
+
+split:
+  group_column: patient_nbr
+  train_size: 0.70
+  validation_size: 0.15
+  test_size: 0.15

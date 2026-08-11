@@ -1,0 +1,79 @@
+﻿# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# =========================
+# IDE / OS
+# =========================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Testing / linting
+# =========================
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Data
+# Never commit raw clinical data
+# =========================
+data/raw/*
+!data/raw/.gitkeep
+
+data/interim/*
+!data/interim/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+
+# =========================
+# Models / generated artifacts
+# =========================
+artifacts/models/*
+!artifacts/models/.gitkeep
+
+artifacts/preprocessors/*
+!artifacts/preprocessors/.gitkeep
+
+# Metrics are intentionally versionable later
+# reports figures/tables will be selectively committed
+
+# =========================
+# Secrets
+# =========================
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+
+# =========================
+# Logs / temp
+# =========================
+*.log
+tmp/
+temp/
