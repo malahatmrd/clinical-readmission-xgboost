@@ -1,0 +1,69 @@
+{
+  "model": "xgboost_early_stopping_refit",
+  "development_protocol": {
+    "internal_split_source": "train_only",
+    "internal_validation_size": 0.2,
+    "internal_split_random_state": 44,
+    "internal_fit_rows": 39184,
+    "internal_stop_rows": 9797,
+    "internal_fit_positive": 3515,
+    "internal_stop_positive": 879,
+    "preprocessor_fit_for_stopping": "internal_fit_only",
+    "early_stopping_metric": "aucpr",
+    "early_stopping_rounds": 50,
+    "maximum_boosting_rounds": 2000,
+    "best_iteration_zero_based": 20,
+    "selected_tree_count": 21,
+    "best_internal_aucpr": 0.17194993477210443,
+    "rounds_actually_built": 71
+  },
+  "refit_policy": {
+    "preprocessor_fit_split": "full_train",
+    "model_fit_split": "full_train",
+    "evaluation_split": "validation",
+    "test_used": false,
+    "scale_pos_weight": 1.0,
+    "hyperparameter_tuning": false
+  },
+  "sample_counts": {
+    "train": 48981,
+    "validation": 10496,
+    "train_positive": 4394,
+    "validation_positive": 942
+  },
+  "transformed_features": 225,
+  "metrics": {
+    "roc_auc": 0.6457808047851368,
+    "average_precision": 0.16431400857625394,
+    "brier_score": 0.07963087409734726,
+    "log_loss": 0.2903517782688141,
+    "threshold": 0.5,
+    "precision_at_0_5": 0.4583333333333333,
+    "recall_at_0_5": 0.01167728237791932,
+    "f1_at_0_5": 0.022774327122153208,
+    "true_negative": 9541,
+    "false_positive": 13,
+    "false_negative": 931,
+    "true_positive": 11
+  },
+  "comparison": {
+    "vs_logistic": {
+      "roc_auc_delta": 0.0029052648327730912,
+      "average_precision_delta": 0.00462711421675438,
+      "brier_score_delta": -0.00017829672883921954,
+      "log_loss_delta": -0.0006095381947173184
+    },
+    "vs_xgboost_baseline": {
+      "roc_auc_delta": 0.009449471925587982,
+      "average_precision_delta": 0.01131199711162395,
+      "brier_score_delta": -0.0016527995467185974,
+      "log_loss_delta": -0.006110519170761108
+    },
+    "vs_weighted_xgboost": {
+      "roc_auc_delta": 0.02490780975898743,
+      "average_precision_delta": 0.013699848734979342,
+      "brier_score_delta": -0.1090092733502388,
+      "log_loss_delta": -0.26865532994270325
+    }
+  }
+}
