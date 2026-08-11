@@ -1,0 +1,31 @@
+{
+  "model": "logistic_regression_baseline",
+  "training_policy": {
+    "fit_split": "train",
+    "evaluation_split": "validation",
+    "test_used": false,
+    "class_weight": null,
+    "threshold_policy": "0.5 descriptive only; not optimized"
+  },
+  "sample_counts": {
+    "train": 48981,
+    "validation": 10496,
+    "train_positive": 4394,
+    "validation_positive": 942
+  },
+  "transformed_features": 225,
+  "metrics": {
+    "roc_auc": 0.6428755399523637,
+    "average_precision": 0.15968689435949956,
+    "brier_score": 0.07980917082618648,
+    "log_loss": 0.2909613164635314,
+    "threshold": 0.5,
+    "precision_at_0_5": 0.07692307692307693,
+    "recall_at_0_5": 0.0010615711252653928,
+    "f1_at_0_5": 0.0020942408376963353,
+    "true_negative": 9542,
+    "false_positive": 12,
+    "false_negative": 941,
+    "true_positive": 1
+  }
+}

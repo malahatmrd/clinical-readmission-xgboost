@@ -250,7 +250,7 @@ Current status:
 - [x] Phase 1 — data acquisition, provenance, and quality audit
 - [x] Phase 2 — clinical cohort definition and leakage controls
 - [x] Phase 3 - leakage-safe train/validation/test splitting
-- [ ] Phase 4 — preprocessing and logistic-regression baseline
+- [x] Phase 4 - preprocessing and logistic-regression baseline
 - [ ] Phase 5 — XGBoost training
 - [ ] Phase 6 — class-imbalance and hyperparameter optimization
 - [ ] Phase 7 — discrimination and calibration analysis
