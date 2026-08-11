@@ -98,6 +98,29 @@ by `patient_nbr` so that a patient cannot appear in more than one split.
 All preprocessing, feature transformation, model tuning, calibration,
 and threshold selection will be learned without using the held-out test set.
 
+## Primary Data Split
+
+The primary cohort is partitioned into stratified train, validation, and
+locked test sets.
+
+| Split | Encounters | Positive Rate |
+|---|---:|---:|
+| Train | 48,981 | 8.971% |
+| Validation | 10,496 | 8.975% |
+| Test | 10,496 | 8.965% |
+
+The test partition is locked after creation and is not used for
+preprocessing decisions, feature selection, hyperparameter tuning,
+calibration fitting, or threshold selection.
+
+Build the reproducible split with:
+
+    python scripts/build_primary_split.py
+
+Detailed protocol:
+
+docs/split_protocol.md
+
 ## Data Acquisition
 
 Download the dataset with:
@@ -226,7 +249,7 @@ Current status:
 - [x] Phase 0 — reproducible project bootstrap
 - [x] Phase 1 — data acquisition, provenance, and quality audit
 - [x] Phase 2 — clinical cohort definition and leakage controls
-- [ ] Phase 3 — leakage-safe train/validation/test splitting
+- [x] Phase 3 - leakage-safe train/validation/test splitting
 - [ ] Phase 4 — preprocessing and logistic-regression baseline
 - [ ] Phase 5 — XGBoost training
 - [ ] Phase 6 — class-imbalance and hyperparameter optimization

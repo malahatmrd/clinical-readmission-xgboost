@@ -1,0 +1,44 @@
+{
+  "cohort": "primary",
+  "cohort_file": "data/interim/cohorts/primary.csv",
+  "cohort_sha256": "f1de76f15beed99c154e81c078b99b3840b95aae01e18354b570363d8cc8ddd8",
+  "assignment_file": "data/processed/splits/primary_split_assignments.csv",
+  "assignment_sha256": "e8201f2f411995f47fb5b525061762dca8cd65831578f12fa9ce2eff05bc9482",
+  "target_column": "readmitted_30d",
+  "group_column": "patient_nbr",
+  "random_seed": 42,
+  "second_stage_seed": 43,
+  "split_fractions": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "sklearn_version": "1.9.0",
+  "test_set_policy": "Locked after creation. Not used for preprocessing decisions, feature selection, hyperparameter tuning, calibration fitting, or threshold selection.",
+  "summary": [
+    {
+      "split": "train",
+      "encounters": 48981,
+      "unique_patients": 48981,
+      "positive_30d": 4394,
+      "negative_30d": 44587,
+      "positive_30d_pct": 8.970825422102449
+    },
+    {
+      "split": "validation",
+      "encounters": 10496,
+      "unique_patients": 10496,
+      "positive_30d": 942,
+      "negative_30d": 9554,
+      "positive_30d_pct": 8.97484756097561
+    },
+    {
+      "split": "test",
+      "encounters": 10496,
+      "unique_patients": 10496,
+      "positive_30d": 941,
+      "negative_30d": 9555,
+      "positive_30d_pct": 8.96532012195122
+    }
+  ]
+}
