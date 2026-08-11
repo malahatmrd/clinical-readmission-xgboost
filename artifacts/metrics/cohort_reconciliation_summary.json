@@ -1,0 +1,22 @@
+{
+  "reference_paper": {
+    "cohort_size": 69984,
+    "positive_30d": 6459
+  },
+  "current_snapshot": {
+    "raw_encounters": 101766,
+    "unique_patients": 71518
+  },
+  "terminal_ids": [
+    11,
+    13,
+    14,
+    19,
+    20,
+    21
+  ],
+  "source_first_terminal_total": 1545,
+  "exact_size_rule_matches": 0,
+  "exact_size_and_positive_matches": 0,
+  "recovered_patients_if_eligibility_first": 17
+}

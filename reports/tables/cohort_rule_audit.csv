@@ -1,0 +1,7 @@
+strategy,encounters,unique_patients,positive_30d,positive_30d_pct
+raw,101766,71518,11357,11.159915885462727
+source_first_per_patient,71518,71518,6293,8.799183422355211
+min_encounter_id_per_patient,71518,71518,6293,8.799183422355211
+first_then_remove_terminal,69973,69973,6277,8.970602946850928
+remove_terminal_then_first,69990,69990,6285,8.979854264894986
+all_non_terminal_encounters,99343,69990,11314,11.388824577474004

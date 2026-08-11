@@ -1,0 +1,63 @@
+{
+  "terminal_or_hospice_ids": [
+    11,
+    13,
+    14,
+    19,
+    20,
+    21
+  ],
+  "raw_rows": 101766,
+  "raw_unique_patients": 71518,
+  "source_first_vs_min_encounter_id": {
+    "patients_compared": 71518,
+    "mismatched_first_encounters": 0,
+    "match_percentage": 100.0
+  },
+  "source_first_terminal_encounters": 1545,
+  "patients_recovered_if_terminal_removed_first": 17,
+  "strategies": [
+    {
+      "strategy": "raw",
+      "encounters": 101766,
+      "unique_patients": 71518,
+      "positive_30d": 11357,
+      "positive_30d_pct": 11.159915885462727
+    },
+    {
+      "strategy": "source_first_per_patient",
+      "encounters": 71518,
+      "unique_patients": 71518,
+      "positive_30d": 6293,
+      "positive_30d_pct": 8.799183422355211
+    },
+    {
+      "strategy": "min_encounter_id_per_patient",
+      "encounters": 71518,
+      "unique_patients": 71518,
+      "positive_30d": 6293,
+      "positive_30d_pct": 8.799183422355211
+    },
+    {
+      "strategy": "first_then_remove_terminal",
+      "encounters": 69973,
+      "unique_patients": 69973,
+      "positive_30d": 6277,
+      "positive_30d_pct": 8.970602946850928
+    },
+    {
+      "strategy": "remove_terminal_then_first",
+      "encounters": 69990,
+      "unique_patients": 69990,
+      "positive_30d": 6285,
+      "positive_30d_pct": 8.979854264894986
+    },
+    {
+      "strategy": "all_non_terminal_encounters",
+      "encounters": 99343,
+      "unique_patients": 69990,
+      "positive_30d": 11314,
+      "positive_30d_pct": 11.388824577474004
+    }
+  ]
+}

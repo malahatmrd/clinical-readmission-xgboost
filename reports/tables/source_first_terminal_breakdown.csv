@@ -1,0 +1,6 @@
+discharge_disposition_id,description,encounters,unique_patients,positive_30d
+11,Expired,1077,1077,0
+13,Hospice / home,243,243,5
+14,Hospice / medical facility,218,218,11
+19,"Expired at home. Medicaid only, hospice.",6,6,0
+20,"Expired in a medical facility. Medicaid only, hospice.",1,1,0

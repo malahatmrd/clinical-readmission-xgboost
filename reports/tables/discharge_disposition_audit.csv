@@ -1,0 +1,27 @@
+discharge_disposition_id,description,encounters,unique_patients,positive_30d,positive_30d_pct,terminal_or_hospice
+1,Discharged to home,60234,46979,5602,9.300395125676527,False
+2,Discharged/transferred to another short term hospital,2128,2045,342,16.071428571428573,False
+3,Discharged/transferred to SNF,13954,10887,2046,14.662462376379532,False
+4,Discharged/transferred to ICF,815,720,104,12.76073619631902,False
+5,Discharged/transferred to another type of inpatient care institution,1184,1121,247,20.861486486486484,False
+6,Discharged/transferred to home with home health service,12902,10874,1638,12.695706092078748,False
+7,Left AMA,623,570,90,14.446227929373997,False
+8,Discharged/transferred to home under care of Home IV provider,108,104,15,13.88888888888889,False
+9,Admitted as an inpatient to this hospital,21,20,9,42.857142857142854,False
+10,Neonate discharged to another hospital for neonatal aftercare,6,6,0,0.0,False
+11,Expired,1642,1642,0,0.0,True
+12,Still patient or expected to return for outpatient services,3,2,2,66.66666666666666,False
+13,Hospice / home,399,387,19,4.761904761904762,True
+14,Hospice / medical facility,372,371,24,6.451612903225806,True
+15,Discharged/transferred within this institution to Medicare approved swing bed,63,61,28,44.44444444444444,False
+16,Discharged/transferred/referred another institution for outpatient services,11,9,0,0.0,False
+17,Discharged/transferred/referred to this institution for outpatient services,14,14,0,0.0,False
+18,NULL,3691,2808,459,12.435654294229206,False
+19,"Expired at home. Medicaid only, hospice.",8,8,0,0.0,True
+20,"Expired in a medical facility. Medicaid only, hospice.",2,2,0,0.0,True
+22,Discharged/transferred to another rehab fac including rehab units of a hospital .,1993,1896,552,27.69693928750627,False
+23,Discharged/transferred to a long term care hospital.,412,388,30,7.281553398058252,False
+24,Discharged/transferred to a nursing facility certified under Medicaid but not certified under Medicare.,48,43,7,14.583333333333334,False
+25,Not Mapped,989,884,92,9.30232558139535,False
+27,Discharged/transferred to a federal health care facility.,5,5,0,0.0,False
+28,Discharged/transferred/referred to a psychiatric hospital of psychiatric distinct part unit of a hospital,139,127,51,36.69064748201439,False

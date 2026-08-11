@@ -1,0 +1,15 @@
+{
+  "raw_encounters": 101766,
+  "raw_unique_patients": 71518,
+  "observed_disposition_ids": 26,
+  "terminal_or_hospice_ids_observed": [
+    11,
+    13,
+    14,
+    19,
+    20
+  ],
+  "terminal_or_hospice_encounters": 2423,
+  "terminal_or_hospice_unique_patients": 2399,
+  "terminal_or_hospice_positive_30d": 43
+}

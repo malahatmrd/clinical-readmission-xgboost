@@ -1,0 +1,22 @@
+{
+  "raw_encounters": 101766,
+  "unique_patients": 71518,
+  "encounter_id": {
+    "globally_monotonic_increasing": false,
+    "global_inversions": 4
+  },
+  "expired": {
+    "rows": 1652,
+    "unique_patients": 1652,
+    "patients_with_observed_later_encounter": 13
+  },
+  "hospice": {
+    "rows": 771,
+    "unique_patients": 752,
+    "patients_with_observed_later_encounter": 59
+  },
+  "terminal_overall": {
+    "rows": 2423,
+    "patients_with_observed_later_encounter": 72
+  }
+}

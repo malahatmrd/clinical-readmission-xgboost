@@ -1,0 +1,52 @@
+{
+  "terminal_or_hospice_ids": [
+    11,
+    13,
+    14,
+    19,
+    20,
+    21
+  ],
+  "primary_definition": "first observed encounter per patient, then exclude terminal/hospice",
+  "sensitivity_definition": "exclude terminal/hospice, then retain first eligible observed encounter per patient",
+  "all_eligible_definition": "all encounters excluding terminal/hospice",
+  "target_definition": {
+    "column": "readmitted_30d",
+    "positive": "readmitted == <30",
+    "negative": "readmitted == NO or readmitted == >30"
+  },
+  "cohorts": [
+    {
+      "cohort": "raw",
+      "encounters": 101766,
+      "unique_patients": 71518,
+      "positive_30d": 11357,
+      "negative_30d": 90409,
+      "positive_30d_pct": 11.159915885462727
+    },
+    {
+      "cohort": "primary",
+      "encounters": 69973,
+      "unique_patients": 69973,
+      "positive_30d": 6277,
+      "negative_30d": 63696,
+      "positive_30d_pct": 8.970602946850928
+    },
+    {
+      "cohort": "sensitivity_first_eligible",
+      "encounters": 69990,
+      "unique_patients": 69990,
+      "positive_30d": 6285,
+      "negative_30d": 63705,
+      "positive_30d_pct": 8.979854264894986
+    },
+    {
+      "cohort": "all_eligible_encounters",
+      "encounters": 99343,
+      "unique_patients": 69990,
+      "positive_30d": 11314,
+      "negative_30d": 88029,
+      "positive_30d_pct": 11.388824577474004
+    }
+  ]
+}
