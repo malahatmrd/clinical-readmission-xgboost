@@ -1,0 +1,26 @@
+{
+  "phase": 6,
+  "selection_policy": {
+    "primary_metric": "average_precision",
+    "higher_is_better": true,
+    "selection_split": "validation",
+    "test_used": false,
+    "threshold_optimized": false
+  },
+  "champion": {
+    "model": "xgboost_tuned",
+    "average_precision": 0.17163851047457246,
+    "roc_auc": 0.6508197675788134,
+    "brier_score": 0.0805526077747345,
+    "log_loss": 0.2959751486778259
+  },
+  "candidate_count": 5,
+  "comparison_table": "reports\\tables\\phase6_model_comparison.csv",
+  "source_metrics": {
+    "logistic_regression": "artifacts\\metrics\\logistic_baseline_validation.json",
+    "xgboost_baseline": "artifacts\\metrics\\xgboost_baseline_validation.json",
+    "xgboost_weighted": "artifacts\\metrics\\xgboost_weighted_validation.json",
+    "xgboost_early_stopping": "artifacts\\metrics\\xgboost_early_stopping_validation.json",
+    "xgboost_tuned": "artifacts\\metrics\\xgboost_tuned_validation.json"
+  }
+}

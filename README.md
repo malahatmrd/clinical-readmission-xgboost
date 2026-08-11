@@ -252,7 +252,7 @@ Current status:
 - [x] Phase 3 - leakage-safe train/validation/test splitting
 - [x] Phase 4 - preprocessing and logistic-regression baseline
 - [x] Phase 5 - XGBoost training
-- [ ] Phase 6 — class-imbalance and hyperparameter optimization
+- [x] Phase 6 - class-imbalance and hyperparameter optimization
 - [ ] Phase 7 — discrimination and calibration analysis
 - [ ] Phase 8 — validation-only threshold selection
 - [ ] Phase 9 — SHAP explainability
