@@ -1,0 +1,21 @@
+{
+  "total_features": 47,
+  "features_with_missing": 9,
+  "high_missing_features_ge_20_pct": [
+    "weight",
+    "max_glu_serum",
+    "A1Cresult",
+    "medical_specialty",
+    "payer_code"
+  ],
+  "moderate_missing_features_5_to_20_pct": [],
+  "near_unique_features": [],
+  "constant_features": [
+    "examide",
+    "citoglipton"
+  ],
+  "features_with_question_mark": [],
+  "features_with_unknown_invalid": [
+    "gender"
+  ]
+}

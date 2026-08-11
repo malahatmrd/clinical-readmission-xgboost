@@ -1,0 +1,30 @@
+{
+  "dataset": {
+    "name": "Diabetes 130-US Hospitals for Years 1999-2008",
+    "uci_dataset_id": 296
+  },
+  "snapshot": {
+    "created_at_utc": "2026-08-11T11:18:53.266652+00:00",
+    "identifiers_file": "data/raw/identifiers.csv",
+    "features_file": "data/raw/features.csv",
+    "target_file": "data/raw/target.csv",
+    "identifiers_sha256": "a0dd26ab6d8ab54170f7c2a02b07c809a7d38986bbf2bc6ca7d7dfa3a0744b2e",
+    "features_sha256": "63e2811bc212729887e6b1ab88f96af5e5b33aced8c1790ec61c1efd38990b04",
+    "target_sha256": "823567cc53b56e91867fe90bee00a1b64ea3712561b383fd870da019c6ca14bd"
+  },
+  "shape": {
+    "rows": 101766,
+    "identifier_columns": 2,
+    "features": 47,
+    "target_columns": 1
+  },
+  "identifiers": {
+    "unique_patients": 71518,
+    "unique_encounters": 101766
+  },
+  "target_distribution": {
+    "NO": 54864,
+    ">30": 35545,
+    "<30": 11357
+  }
+}

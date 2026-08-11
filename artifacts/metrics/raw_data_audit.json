@@ -1,0 +1,65 @@
+{
+  "patient_encounter_audit": {
+    "rows": 101766,
+    "unique_patients": 71518,
+    "unique_encounters": 101766,
+    "patients_with_multiple_encounters": 16773,
+    "patients_with_multiple_encounters_pct": 23.452837048015883,
+    "mean_encounters_per_patient": 1.4229424760200229,
+    "median_encounters_per_patient": 1.0,
+    "max_encounters_per_patient": 40
+  },
+  "target_audit": {
+    "original_distribution": {
+      "NO": {
+        "count": 54864,
+        "percentage": 53.911915571015854
+      },
+      ">30": {
+        "count": 35545,
+        "percentage": 34.92816854352141
+      },
+      "<30": {
+        "count": 11357,
+        "percentage": 11.159915885462727
+      }
+    },
+    "binary_target_definition": {
+      "positive": "<30",
+      "negative": [
+        "NO",
+        ">30"
+      ]
+    },
+    "positive_count": 11357,
+    "negative_count": 90409,
+    "positive_rate": 0.11159915885462728,
+    "positive_percentage": 11.159915885462727
+  },
+  "payer_code_audit": {
+    "dtype": "string",
+    "missing_count": 40256,
+    "missing_percentage": 39.5574160328597,
+    "unique_non_null": 17,
+    "top_values": {
+      "<NA>": 40256,
+      "MC": 32439,
+      "HM": 6274,
+      "SP": 5007,
+      "BC": 4655,
+      "MD": 3532,
+      "CP": 2533,
+      "UN": 2448,
+      "CM": 1937,
+      "OG": 1033,
+      "PO": 592,
+      "DM": 549,
+      "CH": 146,
+      "WC": 135,
+      "OT": 95,
+      "MP": 79,
+      "SI": 55,
+      "FR": 1
+    }
+  }
+}

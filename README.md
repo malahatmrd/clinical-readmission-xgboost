@@ -1,47 +1,109 @@
 ﻿# Clinical Readmission Prediction with XGBoost
 
-A reproducible clinical machine-learning project for predicting 30-day hospital readmission using real-world diabetes inpatient encounters.
+Reliable and reproducible 30-day hospital readmission prediction using
+real-world clinical encounter data.
 
-## Project Goal
+## Overview
 
-The project investigates whether routinely available clinical information can be used to estimate the risk of hospital readmission within 30 days of discharge.
+This project develops a leakage-aware clinical machine-learning pipeline
+for predicting hospital readmission within 30 days.
 
-The emphasis is not limited to predictive performance. The pipeline is designed around:
+The project is designed as a research-oriented medical data science
+repository rather than a single modeling notebook.
 
-- leakage-aware cohort construction
-- patient-level train/validation/test splitting
-- reproducible preprocessing
-- interpretable baseline modeling
-- gradient-boosted decision trees
+Key priorities include:
+
+- reproducible data acquisition
+- explicit data provenance
+- patient-level leakage prevention
+- clinical cohort definition
+- robust preprocessing
+- interpretable baseline models
+- XGBoost modeling
+- class-imbalance handling
 - probability calibration
-- threshold selection
-- SHAP-based explainability
+- threshold analysis
+- SHAP explainability
 - subgroup evaluation
 - robustness analysis
-- reproducible testing
+- automated testing
 
 ## Dataset
 
-Diabetes 130-US Hospitals for Years 1999-2008  
-UCI Machine Learning Repository — Dataset ID 296.
+Diabetes 130-US Hospitals for Years 1999-2008.
 
-Raw clinical data are not committed to this repository.
+Current validated snapshot:
+
+| Property | Value |
+|---|---:|
+| Encounters | 101,766 |
+| Unique patients | 71,518 |
+| Predictive features | 47 |
+| Positive 30-day readmissions | 11,357 |
+| Positive rate | 11.16% |
+
+Detailed dataset documentation is available in:
+
+`docs/data_card.md`
 
 ## Prediction Target
 
 Positive:
-- readmission within 30 days
+
+`readmitted == "<30"`
 
 Negative:
-- readmission after 30 days
-- no recorded readmission
 
-## Repository Status
+`readmitted == "NO"` or `readmitted == ">30"`
 
-Phase 0 — project bootstrap and reproducible environment.
+## Leakage Prevention
 
-## Disclaimer
+The UCI dataset provides `encounter_id` and `patient_nbr` separately from
+the predictive feature matrix.
 
-This project is intended for research and educational purposes only.
+These identifiers are never exposed to the predictive model.
 
-It is not a clinical decision-support system and must not be used for patient care without appropriate external validation, prospective evaluation, and regulatory review.
+Because 16,773 patients have multiple encounters, ordinary row-level
+random splitting could place encounters from the same patient in both
+training and evaluation data.
+
+This project therefore uses patient-aware cohort construction and
+group-based validation.
+
+## Repository Structure
+
+```text
+clinical-readmission-xgboost/
+│
+├── artifacts/
+│   └── metrics/
+│
+├── configs/
+│
+├── data/
+│   ├── raw/
+│   ├── interim/
+│   └── processed/
+│
+├── docs/
+│   └── data_card.md
+│
+├── reports/
+│   ├── figures/
+│   └── tables/
+│
+├── scripts/
+│
+├── src/
+│   └── clinical_readmission/
+│       ├── data/
+│       ├── evaluation/
+│       ├── explainability/
+│       ├── features/
+│       └── models/
+│
+├── tests/
+│
+├── pyproject.toml
+├── requirements.txt
+└── requirements-lock.txt
