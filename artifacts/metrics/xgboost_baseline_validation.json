@@ -1,0 +1,40 @@
+{
+  "model": "xgboost_baseline",
+  "training_policy": {
+    "fit_split": "train",
+    "evaluation_split": "validation",
+    "test_used": false,
+    "class_weighting": false,
+    "scale_pos_weight": null,
+    "early_stopping": false,
+    "hyperparameter_tuning": false,
+    "threshold_policy": "0.5 descriptive only; not optimized"
+  },
+  "sample_counts": {
+    "train": 48981,
+    "validation": 10496,
+    "train_positive": 4394,
+    "validation_positive": 942
+  },
+  "transformed_features": 225,
+  "metrics": {
+    "roc_auc": 0.6363313328595488,
+    "average_precision": 0.15300201146463,
+    "brier_score": 0.08128367364406586,
+    "log_loss": 0.2964622974395752,
+    "threshold": 0.5,
+    "precision_at_0_5": 0.3442622950819672,
+    "recall_at_0_5": 0.022292993630573247,
+    "f1_at_0_5": 0.04187437686939183,
+    "true_negative": 9514,
+    "false_positive": 40,
+    "false_negative": 921,
+    "true_positive": 21
+  },
+  "comparison_with_logistic": {
+    "roc_auc_delta_vs_logistic": -0.006544207092814891,
+    "average_precision_delta_vs_logistic": -0.0066848828948695704,
+    "brier_score_delta_vs_logistic": 0.0014745028178793779,
+    "log_loss_delta_vs_logistic": 0.00550098097604379
+  }
+}

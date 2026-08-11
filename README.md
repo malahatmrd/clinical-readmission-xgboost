@@ -251,7 +251,7 @@ Current status:
 - [x] Phase 2 — clinical cohort definition and leakage controls
 - [x] Phase 3 - leakage-safe train/validation/test splitting
 - [x] Phase 4 - preprocessing and logistic-regression baseline
-- [ ] Phase 5 — XGBoost training
+- [x] Phase 5 - XGBoost training
 - [ ] Phase 6 — class-imbalance and hyperparameter optimization
 - [ ] Phase 7 — discrimination and calibration analysis
 - [ ] Phase 8 — validation-only threshold selection
