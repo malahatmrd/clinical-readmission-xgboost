@@ -254,8 +254,8 @@ Current status:
 - [x] Phase 5 - XGBoost training
 - [x] Phase 6 - class-imbalance and hyperparameter optimization
 - [x] Phase 7 - discrimination and calibration analysis
-- [ ] Phase 8 — validation-only threshold selection
-- [ ] Phase 9 — SHAP explainability
+- [x] Phase 8 - validation-only threshold selection
+- [ ] Phase 9 - SHAP explainability
 - [ ] Phase 10 — subgroup and robustness analysis
 - [ ] Phase 11 — final model card and reproducibility release
 

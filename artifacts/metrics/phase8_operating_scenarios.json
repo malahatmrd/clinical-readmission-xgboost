@@ -1,0 +1,103 @@
+{
+  "phase": 8,
+  "analysis": "validation_operating_scenarios",
+  "selected_model": "tuned_xgboost_sigmoid",
+  "scenario_definitions": {
+    "high_sensitivity": {
+      "minimum_sensitivity": 0.8,
+      "selection_rule": "highest eligible threshold"
+    },
+    "moderate_capacity": {
+      "maximum_alerts_per_100": 20.0,
+      "selection_rule": "lowest eligible threshold"
+    },
+    "limited_capacity": {
+      "maximum_alerts_per_100": 10.0,
+      "selection_rule": "lowest eligible threshold"
+    }
+  },
+  "scenarios": {
+    "high_sensitivity": {
+      "scenario": "high_sensitivity",
+      "selection_rule": "highest_threshold_with_sensitivity_at_least_0.80",
+      "constraint_value": 0.8,
+      "threshold": 0.065,
+      "true_positive": 756.0,
+      "false_positive": 6160.0,
+      "true_negative": 3394.0,
+      "false_negative": 186.0,
+      "sensitivity": 0.802547770700637,
+      "specificity": 0.3552438769101946,
+      "ppv": 0.1093117408906882,
+      "npv": 0.9480446927374302,
+      "f1": 0.1924153728684143,
+      "balanced_accuracy": 0.5788958238054158,
+      "alert_rate": 0.6589176829268293,
+      "alerts_per_100": 65.89176829268293,
+      "true_positives_per_100": 7.202743902439025,
+      "false_positives_per_100": 58.6890243902439,
+      "number_needed_to_evaluate": 9.148148148148149,
+      "model_net_benefit": 0.0312275824964131,
+      "treat_all_net_benefit": 0.0264689578713969,
+      "treat_none_net_benefit": 0.0
+    },
+    "moderate_capacity": {
+      "scenario": "moderate_capacity",
+      "selection_rule": "lowest_threshold_with_alerts_per_100_at_most_20",
+      "constraint_value": 20.0,
+      "threshold": 0.105,
+      "true_positive": 336.0,
+      "false_positive": 1613.0,
+      "true_negative": 7941.0,
+      "false_negative": 606.0,
+      "sensitivity": 0.3566878980891719,
+      "specificity": 0.8311701904961273,
+      "ppv": 0.172396100564392,
+      "npv": 0.9290979290979292,
+      "f1": 0.2324455205811138,
+      "balanced_accuracy": 0.5939290442926496,
+      "alert_rate": 0.1856897865853658,
+      "alerts_per_100": 18.568978658536587,
+      "true_positives_per_100": 3.201219512195122,
+      "false_positives_per_100": 15.367759146341465,
+      "number_needed_to_evaluate": 5.800595238095238,
+      "model_net_benefit": 0.0139829804809919,
+      "treat_all_net_benefit": -0.0170408093745741,
+      "treat_none_net_benefit": 0.0
+    },
+    "limited_capacity": {
+      "scenario": "limited_capacity",
+      "selection_rule": "lowest_threshold_with_alerts_per_100_at_most_10",
+      "constraint_value": 10.0,
+      "threshold": 0.13,
+      "true_positive": 221.0,
+      "false_positive": 822.0,
+      "true_negative": 8732.0,
+      "false_negative": 721.0,
+      "sensitivity": 0.2346072186836518,
+      "specificity": 0.913962738120159,
+      "ppv": 0.211888782358581,
+      "npv": 0.923727917063366,
+      "f1": 0.2226700251889168,
+      "balanced_accuracy": 0.5742849784019054,
+      "alert_rate": 0.0993711890243902,
+      "alerts_per_100": 9.937118902439025,
+      "true_positives_per_100": 2.105564024390244,
+      "false_positives_per_100": 7.831554878048781,
+      "number_needed_to_evaluate": 4.719457013574661,
+      "model_net_benefit": 0.00935331686291,
+      "treat_all_net_benefit": -0.0462661199887861,
+      "treat_none_net_benefit": 0.0
+    }
+  },
+  "data_policy": {
+    "evaluation_split": "validation",
+    "scenarios_predefined": true,
+    "reference_threshold_selected": false,
+    "test_used": false
+  },
+  "source_artifacts": {
+    "threshold_sweep_table": "reports\\tables\\phase8_validation_threshold_sweep.csv",
+    "threshold_sweep_summary": "artifacts\\metrics\\phase8_validation_threshold_sweep.json"
+  }
+}

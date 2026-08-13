@@ -1,0 +1,68 @@
+{
+  "phase": 8,
+  "decision": "reference_operating_threshold",
+  "selected_model": "tuned_xgboost_sigmoid",
+  "selected_scenario": "moderate_capacity",
+  "reference_threshold": 0.105,
+  "selection_interpretation": "reference moderate-capacity operating point; not claimed to be universally clinically optimal",
+  "predefined_constraint": {
+    "metric": "alerts_per_100",
+    "maximum": 20.0,
+    "selection_rule": "lowest threshold satisfying the alert-capacity constraint"
+  },
+  "validation_operating_metrics": {
+    "sensitivity": 0.3566878980891719,
+    "specificity": 0.8311701904961273,
+    "ppv": 0.172396100564392,
+    "npv": 0.9290979290979292,
+    "f1": 0.2324455205811138,
+    "alerts_per_100": 18.568978658536587,
+    "number_needed_to_evaluate": 5.800595238095238,
+    "model_net_benefit": 0.0139829804809919
+  },
+  "bootstrap_95_ci": {
+    "sensitivity": {
+      "ci_lower": 0.3248407643312102,
+      "ci_upper": 0.386411889596603
+    },
+    "specificity": {
+      "ci_lower": 0.8237387481683065,
+      "ci_upper": 0.8387063010257484
+    },
+    "ppv": {
+      "ci_lower": 0.15858793413587935,
+      "ci_upper": 0.18594918968525545
+    },
+    "npv": {
+      "ci_lower": 0.9259384133430751,
+      "ci_upper": 0.9322500821523559
+    },
+    "f1": {
+      "ci_lower": 0.21402010293394857,
+      "ci_upper": 0.25093277524568336
+    },
+    "alerts_per_100": {
+      "ci_lower": 17.825600228658537,
+      "ci_upper": 19.283536585365855
+    },
+    "number_needed_to_evaluate": {
+      "ci_lower": 5.377813168912113,
+      "ci_upper": 6.305649956620183
+    },
+    "model_net_benefit": {
+      "ci_lower": 0.01115726980855703,
+      "ci_upper": 0.016841225494788118
+    }
+  },
+  "data_policy": {
+    "selection_split": "validation",
+    "model_frozen": true,
+    "calibration_frozen": true,
+    "threshold_frozen": true,
+    "test_used": false
+  },
+  "source_artifacts": {
+    "operating_scenarios": "artifacts\\metrics\\phase8_operating_scenarios.json",
+    "operating_bootstrap": "artifacts\\metrics\\phase8_operating_scenario_bootstrap.json"
+  }
+}

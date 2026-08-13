@@ -1,0 +1,42 @@
+{
+  "phase": 8,
+  "analysis": "validation_threshold_sweep",
+  "selected_model": "tuned_xgboost_sigmoid",
+  "threshold_grid": {
+    "minimum": 0.01,
+    "maximum": 0.5,
+    "step": 0.005,
+    "count": 99
+  },
+  "validation_sample": {
+    "rows": 10496,
+    "positives": 942,
+    "negatives": 9554,
+    "prevalence": 0.0897484756097561
+  },
+  "probability_distribution": {
+    "minimum": 0.0432554729564238,
+    "maximum": 0.8175049874906013,
+    "mean": 0.09000934280013288,
+    "quantiles": {
+      "0.01": 0.048159768378605326,
+      "0.05": 0.052530929809984375,
+      "0.1": 0.0553406604712081,
+      "0.25": 0.0616663848020598,
+      "0.5": 0.07327084552096541,
+      "0.75": 0.09661580836787623,
+      "0.9": 0.12956875350316885,
+      "0.95": 0.18634485240394258,
+      "0.99": 0.3451141078727392
+    }
+  },
+  "prediction_artifact": {
+    "path": "artifacts\\predictions\\phase7_calibration_candidate_probabilities.csv",
+    "sha256": "8160832b3352ba4d693bbf2df1541c30b705a5db155017675440e729589fa6df"
+  },
+  "data_policy": {
+    "evaluation_split": "validation",
+    "threshold_selected": false,
+    "test_used": false
+  }
+}
