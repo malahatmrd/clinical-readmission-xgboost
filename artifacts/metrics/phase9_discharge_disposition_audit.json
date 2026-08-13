@@ -1,0 +1,26 @@
+{
+  "phase": 9,
+  "analysis": "discharge_disposition_leakage_audit",
+  "audited_disposition_ids": [
+    11,
+    13,
+    14,
+    19,
+    20,
+    21
+  ],
+  "cohort_rows": 69973,
+  "audited_rows_present": 0,
+  "audit_passed": true,
+  "interpretation": {
+    "obvious_nonreadmittable_dispositions_present": false,
+    "model_timing": "at_or_near_discharge",
+    "admission_time_model_claimed": false,
+    "discharge_disposition_retained": true
+  },
+  "data_policy": {
+    "identifiers_saved": false,
+    "test_used": false
+  },
+  "output_table": "reports\\tables\\phase9_discharge_disposition_audit.csv"
+}

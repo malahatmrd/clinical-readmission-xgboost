@@ -1,0 +1,61 @@
+{
+  "phase": 9,
+  "analysis": "shap_global_and_directional_figures",
+  "model": "tuned_xgboost_sigmoid",
+  "shap_output_space": "uncalibrated_xgboost_raw_margin",
+  "global_importance_population": {
+    "split": "validation",
+    "rows": 10496,
+    "source_importance_uses_full_validation": true
+  },
+  "visualization_sample": {
+    "split": "validation",
+    "size": 3000,
+    "positives": 269,
+    "random_state": 49,
+    "stratified": true,
+    "used_for_ranking": false
+  },
+  "beeswarm": {
+    "max_display": 20,
+    "transformed_features": true
+  },
+  "source_importance": {
+    "max_display": 15,
+    "grouped_source_features": true
+  },
+  "numeric_dependence_features": [
+    "number_inpatient",
+    "time_in_hospital",
+    "number_diagnoses"
+  ],
+  "figure_artifacts": {
+    "beeswarm": {
+      "png": "reports\\figures\\phase9_validation_shap_beeswarm.png",
+      "svg": "reports\\figures\\phase9_validation_shap_beeswarm.svg"
+    },
+    "source_importance": {
+      "png": "reports\\figures\\phase9_validation_source_shap_importance.png",
+      "svg": "reports\\figures\\phase9_validation_source_shap_importance.svg"
+    },
+    "numeric_dependence": {
+      "number_inpatient": {
+        "png": "reports\\figures\\phase9_validation_shap_dependence_number_inpatient.png",
+        "svg": "reports\\figures\\phase9_validation_shap_dependence_number_inpatient.svg"
+      },
+      "time_in_hospital": {
+        "png": "reports\\figures\\phase9_validation_shap_dependence_time_in_hospital.png",
+        "svg": "reports\\figures\\phase9_validation_shap_dependence_time_in_hospital.svg"
+      },
+      "number_diagnoses": {
+        "png": "reports\\figures\\phase9_validation_shap_dependence_number_diagnoses.png",
+        "svg": "reports\\figures\\phase9_validation_shap_dependence_number_diagnoses.svg"
+      }
+    }
+  },
+  "data_policy": {
+    "fit_split": "train",
+    "explanation_split": "validation",
+    "test_used": false
+  }
+}

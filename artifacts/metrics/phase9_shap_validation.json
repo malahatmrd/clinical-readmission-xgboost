@@ -1,0 +1,373 @@
+{
+  "phase": 9,
+  "analysis": "validation_tree_shap_global_analysis",
+  "explanation_target": {
+    "model_family": "tuned_xgboost",
+    "final_development_variant": "tuned_xgboost_sigmoid",
+    "explained_output": "uncalibrated_xgboost_raw_margin",
+    "raw_output_interpretation": "binary_xgboost_log_odds_margin",
+    "calibrated_probability_directly_explained": false,
+    "reason": "sigmoid calibration is retained for final probabilities and thresholding, while Tree SHAP decomposes the frozen base XGBoost raw margin"
+  },
+  "sample_counts": {
+    "train": 48981,
+    "validation": 10496,
+    "validation_positive": 942
+  },
+  "model_configuration": {
+    "tree_count": 155,
+    "selected_hyperparameters": {
+      "n_estimators": 400,
+      "learning_rate": 0.03,
+      "max_depth": 5,
+      "min_child_weight": 1.0,
+      "subsample": 1.0,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.1,
+      "reg_lambda": 2.0,
+      "scale_pos_weight": 1.5
+    },
+    "reference_threshold": 0.105
+  },
+  "transformed_feature_count": 225,
+  "shap_matrix_shape": [
+    10496,
+    225
+  ],
+  "tree_explainer": {
+    "model_output": "raw",
+    "feature_perturbation": "tree_path_dependent",
+    "check_additivity": true,
+    "expected_value": -1.9141262769699097
+  },
+  "reproduction_audit": {
+    "maximum_probability_difference": 2.731704706881999e-08,
+    "probability_tolerance": 1e-07,
+    "maximum_additivity_error": 2.9649540920217987e-06,
+    "mean_additivity_error": 4.763392896599848e-07,
+    "additivity_tolerance": 0.0001,
+    "maximum_expit_margin_probability_error": 4.5778111579242164e-08
+  },
+  "top_transformed_features": [
+    {
+      "rank": 1,
+      "transformed_feature": "categorical__discharge_disposition_id_1",
+      "mean_abs_shap": 0.2181297561622148,
+      "mean_signed_shap": -0.027160851093196648,
+      "transformer": "categorical",
+      "source_feature": "discharge_disposition_id"
+    },
+    {
+      "rank": 2,
+      "transformed_feature": "numeric__number_inpatient",
+      "mean_abs_shap": 0.12349717192410026,
+      "mean_signed_shap": -0.019167113856472098,
+      "transformer": "numeric",
+      "source_feature": "number_inpatient"
+    },
+    {
+      "rank": 3,
+      "transformed_feature": "numeric__time_in_hospital",
+      "mean_abs_shap": 0.06687380475185699,
+      "mean_signed_shap": -0.001694642156826064,
+      "transformer": "numeric",
+      "source_feature": "time_in_hospital"
+    },
+    {
+      "rank": 4,
+      "transformed_feature": "categorical__payer_code_Missing",
+      "mean_abs_shap": 0.043569739993139726,
+      "mean_signed_shap": -0.003989661631172433,
+      "transformer": "categorical",
+      "source_feature": "payer_code"
+    },
+    {
+      "rank": 5,
+      "transformed_feature": "diagnosis__diag_1_Circulatory",
+      "mean_abs_shap": 0.04111064149409264,
+      "mean_signed_shap": -0.0017461624511824771,
+      "transformer": "diagnosis",
+      "source_feature": "diag_1"
+    },
+    {
+      "rank": 6,
+      "transformed_feature": "categorical__discharge_disposition_id_22",
+      "mean_abs_shap": 0.038218742164312196,
+      "mean_signed_shap": -0.011897828102208711,
+      "transformer": "categorical",
+      "source_feature": "discharge_disposition_id"
+    },
+    {
+      "rank": 7,
+      "transformed_feature": "categorical__age_[50-60)",
+      "mean_abs_shap": 0.037650071176514296,
+      "mean_signed_shap": -0.0016171531521986641,
+      "transformer": "categorical",
+      "source_feature": "age"
+    },
+    {
+      "rank": 8,
+      "transformed_feature": "numeric__number_diagnoses",
+      "mean_abs_shap": 0.030721105178457372,
+      "mean_signed_shap": -0.0013191843573139295,
+      "transformer": "numeric",
+      "source_feature": "number_diagnoses"
+    },
+    {
+      "rank": 9,
+      "transformed_feature": "categorical__discharge_disposition_id_3",
+      "mean_abs_shap": 0.0295859924418193,
+      "mean_signed_shap": -0.005832167100135582,
+      "transformer": "categorical",
+      "source_feature": "discharge_disposition_id"
+    },
+    {
+      "rank": 10,
+      "transformed_feature": "categorical__diabetesMed_No",
+      "mean_abs_shap": 0.027777393324808556,
+      "mean_signed_shap": -0.001236547720768668,
+      "transformer": "categorical",
+      "source_feature": "diabetesMed"
+    },
+    {
+      "rank": 11,
+      "transformed_feature": "numeric__num_lab_procedures",
+      "mean_abs_shap": 0.024690223198900837,
+      "mean_signed_shap": -0.0025050581770462333,
+      "transformer": "numeric",
+      "source_feature": "num_lab_procedures"
+    },
+    {
+      "rank": 12,
+      "transformed_feature": "numeric__number_emergency",
+      "mean_abs_shap": 0.023142556578039413,
+      "mean_signed_shap": -0.001954275436058352,
+      "transformer": "numeric",
+      "source_feature": "number_emergency"
+    },
+    {
+      "rank": 13,
+      "transformed_feature": "numeric__num_medications",
+      "mean_abs_shap": 0.022333413406077605,
+      "mean_signed_shap": -0.0025639821385110184,
+      "transformer": "numeric",
+      "source_feature": "num_medications"
+    },
+    {
+      "rank": 14,
+      "transformed_feature": "categorical__discharge_disposition_id_6",
+      "mean_abs_shap": 0.016762704733793564,
+      "mean_signed_shap": 0.0032777317359840995,
+      "transformer": "categorical",
+      "source_feature": "discharge_disposition_id"
+    },
+    {
+      "rank": 15,
+      "transformed_feature": "categorical__discharge_disposition_id_5",
+      "mean_abs_shap": 0.015349328787656637,
+      "mean_signed_shap": -0.00445932910845774,
+      "transformer": "categorical",
+      "source_feature": "discharge_disposition_id"
+    },
+    {
+      "rank": 16,
+      "transformed_feature": "diagnosis__diag_2_Neoplasms",
+      "mean_abs_shap": 0.013277591864577028,
+      "mean_signed_shap": -0.00028043392328860005,
+      "transformer": "diagnosis",
+      "source_feature": "diag_2"
+    },
+    {
+      "rank": 17,
+      "transformed_feature": "categorical__diabetesMed_Yes",
+      "mean_abs_shap": 0.01127288879707998,
+      "mean_signed_shap": -0.000497791096158724,
+      "transformer": "categorical",
+      "source_feature": "diabetesMed"
+    },
+    {
+      "rank": 18,
+      "transformed_feature": "diagnosis__diag_1_Musculoskeletal",
+      "mean_abs_shap": 0.008596831685469913,
+      "mean_signed_shap": -0.00035919864975345793,
+      "transformer": "diagnosis",
+      "source_feature": "diag_1"
+    },
+    {
+      "rank": 19,
+      "transformed_feature": "categorical__insulin_No",
+      "mean_abs_shap": 0.00849777132034529,
+      "mean_signed_shap": -0.00041775722758200705,
+      "transformer": "categorical",
+      "source_feature": "insulin"
+    },
+    {
+      "rank": 20,
+      "transformed_feature": "categorical__admission_type_id_1",
+      "mean_abs_shap": 0.00742174471669582,
+      "mean_signed_shap": -0.0012301474908608572,
+      "transformer": "categorical",
+      "source_feature": "admission_type_id"
+    }
+  ],
+  "top_source_features": [
+    {
+      "rank": 1,
+      "source_feature": "discharge_disposition_id",
+      "transformed_feature_count": 21,
+      "mean_abs_shap": 0.25696637149744705,
+      "mean_signed_shap": -0.04540009457291474
+    },
+    {
+      "rank": 2,
+      "source_feature": "number_inpatient",
+      "transformed_feature_count": 1,
+      "mean_abs_shap": 0.12349717192410026,
+      "mean_signed_shap": -0.019167113856472098
+    },
+    {
+      "rank": 3,
+      "source_feature": "time_in_hospital",
+      "transformed_feature_count": 1,
+      "mean_abs_shap": 0.06687380475185699,
+      "mean_signed_shap": -0.001694642156826064
+    },
+    {
+      "rank": 4,
+      "source_feature": "diag_1",
+      "transformed_feature_count": 10,
+      "mean_abs_shap": 0.04938416182059985,
+      "mean_signed_shap": -0.003355940878523425
+    },
+    {
+      "rank": 5,
+      "source_feature": "payer_code",
+      "transformed_feature_count": 18,
+      "mean_abs_shap": 0.04756375858432756,
+      "mean_signed_shap": -0.00433585574853177
+    },
+    {
+      "rank": 6,
+      "source_feature": "age",
+      "transformed_feature_count": 10,
+      "mean_abs_shap": 0.040668823402800376,
+      "mean_signed_shap": -0.0007966488508833124
+    },
+    {
+      "rank": 7,
+      "source_feature": "diabetesMed",
+      "transformed_feature_count": 2,
+      "mean_abs_shap": 0.039044339838822884,
+      "mean_signed_shap": -0.0017343388169273923
+    },
+    {
+      "rank": 8,
+      "source_feature": "number_diagnoses",
+      "transformed_feature_count": 1,
+      "mean_abs_shap": 0.030721105178457372,
+      "mean_signed_shap": -0.0013191843573139295
+    },
+    {
+      "rank": 9,
+      "source_feature": "num_lab_procedures",
+      "transformed_feature_count": 1,
+      "mean_abs_shap": 0.024690223198900837,
+      "mean_signed_shap": -0.0025050581770462333
+    },
+    {
+      "rank": 10,
+      "source_feature": "number_emergency",
+      "transformed_feature_count": 1,
+      "mean_abs_shap": 0.023142556578039413,
+      "mean_signed_shap": -0.001954275436058352
+    },
+    {
+      "rank": 11,
+      "source_feature": "num_medications",
+      "transformed_feature_count": 1,
+      "mean_abs_shap": 0.022333413406077605,
+      "mean_signed_shap": -0.0025639821385110184
+    },
+    {
+      "rank": 12,
+      "source_feature": "diag_2",
+      "transformed_feature_count": 10,
+      "mean_abs_shap": 0.01900107856325726,
+      "mean_signed_shap": -0.00041230102923640844
+    },
+    {
+      "rank": 13,
+      "source_feature": "medical_specialty",
+      "transformed_feature_count": 30,
+      "mean_abs_shap": 0.01848161939386132,
+      "mean_signed_shap": -0.003025839110347917
+    },
+    {
+      "rank": 14,
+      "source_feature": "insulin",
+      "transformed_feature_count": 4,
+      "mean_abs_shap": 0.012581958659700302,
+      "mean_signed_shap": -0.0008438204012424721
+    },
+    {
+      "rank": 15,
+      "source_feature": "admission_source_id",
+      "transformed_feature_count": 17,
+      "mean_abs_shap": 0.010933441357846449,
+      "mean_signed_shap": 0.001429493858334444
+    },
+    {
+      "rank": 16,
+      "source_feature": "diag_3",
+      "transformed_feature_count": 10,
+      "mean_abs_shap": 0.009944618362207613,
+      "mean_signed_shap": -0.00012319386050574366
+    },
+    {
+      "rank": 17,
+      "source_feature": "admission_type_id",
+      "transformed_feature_count": 8,
+      "mean_abs_shap": 0.00913571822078983,
+      "mean_signed_shap": -0.0007557976201962235
+    },
+    {
+      "rank": 18,
+      "source_feature": "metformin",
+      "transformed_feature_count": 4,
+      "mean_abs_shap": 0.007979813351925233,
+      "mean_signed_shap": -0.0005538038671417667
+    },
+    {
+      "rank": 19,
+      "source_feature": "number_outpatient",
+      "transformed_feature_count": 1,
+      "mean_abs_shap": 0.007018713314602248,
+      "mean_signed_shap": 1.209804970280524e-05
+    },
+    {
+      "rank": 20,
+      "source_feature": "A1Cresult",
+      "transformed_feature_count": 4,
+      "mean_abs_shap": 0.0060620908228439345,
+      "mean_signed_shap": -0.0002970732257957547
+    }
+  ],
+  "source_artifacts": {
+    "phase7_predictions": {
+      "path": "artifacts\\predictions\\phase7_calibration_candidate_probabilities.csv",
+      "sha256": "8160832b3352ba4d693bbf2df1541c30b705a5db155017675440e729589fa6df"
+    },
+    "phase8_selection": "artifacts\\metrics\\phase8_threshold_selection.json"
+  },
+  "output_artifacts": {
+    "feature_metadata": "reports\\tables\\phase9_transformed_feature_metadata.csv",
+    "transformed_importance": "reports\\tables\\phase9_transformed_shap_importance.csv",
+    "source_importance": "reports\\tables\\phase9_source_shap_importance.csv"
+  },
+  "data_policy": {
+    "fit_split": "train",
+    "explanation_split": "validation",
+    "identifiers_saved": false,
+    "test_used": false
+  }
+}

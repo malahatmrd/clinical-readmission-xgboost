@@ -1,0 +1,154 @@
+{
+  "phase": 9,
+  "analysis": "predefined_local_shap_explanations",
+  "selection_policy": {
+    "probability_source": "tuned_xgboost_sigmoid_probability",
+    "threshold": 0.105,
+    "cases": [
+      "high_confidence_true_positive",
+      "high_confidence_false_positive",
+      "near_threshold_false_negative",
+      "low_risk_true_negative",
+      "closest_unused_to_threshold"
+    ],
+    "selection_defined_before_case_review": true
+  },
+  "explanation_target": {
+    "model": "tuned_xgboost",
+    "final_development_variant": "tuned_xgboost_sigmoid",
+    "output_space": "raw_xgboost_margin_log_odds",
+    "calibrated_probability_directly_decomposed": false
+  },
+  "audit": {
+    "phase7_prediction_sha256": "8160832b3352ba4d693bbf2df1541c30b705a5db155017675440e729589fa6df",
+    "maximum_base_probability_reproduction_error": 2.731704706881999e-08,
+    "maximum_local_additivity_error": 4.810526661458425e-07,
+    "probability_tolerance": 1e-07,
+    "additivity_tolerance": 0.0001
+  },
+  "selected_cases": [
+    {
+      "case_name": "high_confidence_true_positive",
+      "validation_row": 7260,
+      "confusion_label": "TP",
+      "y_true": 1,
+      "predicted_positive": true,
+      "threshold": 0.105,
+      "calibrated_probability": 0.8175049874906013,
+      "base_xgboost_probability": 0.6137635111808777,
+      "raw_xgboost_margin": 0.46315997838974,
+      "shap_expected_value": -1.9141262769699097,
+      "local_additivity_error": 1.957823769771494e-07,
+      "top_positive_source_feature": "discharge_disposition_id",
+      "top_positive_source_shap": 1.7654986959532835,
+      "top_negative_source_feature": "number_inpatient",
+      "top_negative_source_shap": -0.03715319186449051
+    },
+    {
+      "case_name": "high_confidence_false_positive",
+      "validation_row": 4559,
+      "confusion_label": "FP",
+      "y_true": 0,
+      "predicted_positive": true,
+      "threshold": 0.105,
+      "calibrated_probability": 0.8086577312104618,
+      "base_xgboost_probability": 0.6065221428871155,
+      "raw_xgboost_margin": 0.4327164590358734,
+      "shap_expected_value": -1.9141262769699097,
+      "local_additivity_error": 1.2119016901124269e-09,
+      "top_positive_source_feature": "discharge_disposition_id",
+      "top_positive_source_shap": 1.710795285529457,
+      "top_negative_source_feature": "number_inpatient",
+      "top_negative_source_shap": -0.04682148993015289
+    },
+    {
+      "case_name": "near_threshold_false_negative",
+      "validation_row": 3283,
+      "confusion_label": "FN",
+      "y_true": 1,
+      "predicted_positive": false,
+      "threshold": 0.105,
+      "calibrated_probability": 0.1049791224087083,
+      "base_xgboost_probability": 0.16071392595767975,
+      "raw_xgboost_margin": -1.652925729751587,
+      "shap_expected_value": -1.9141262769699097,
+      "local_additivity_error": 4.810526661458425e-07,
+      "top_positive_source_feature": "discharge_disposition_id",
+      "top_positive_source_shap": 0.35716379375662655,
+      "top_negative_source_feature": "number_inpatient",
+      "top_negative_source_shap": -0.10177844762802124
+    },
+    {
+      "case_name": "low_risk_true_negative",
+      "validation_row": 8565,
+      "confusion_label": "TN",
+      "y_true": 0,
+      "predicted_positive": false,
+      "threshold": 0.105,
+      "calibrated_probability": 0.0432554729564238,
+      "base_xgboost_probability": 0.04214419424533844,
+      "raw_xgboost_margin": -3.1236002445220947,
+      "shap_expected_value": -1.9141262769699097,
+      "local_additivity_error": 1.1527527021826245e-07,
+      "top_positive_source_feature": "diabetesMed",
+      "top_positive_source_shap": 0.02495188359171152,
+      "top_negative_source_feature": "discharge_disposition_id",
+      "top_negative_source_shap": -0.3004200785217108
+    },
+    {
+      "case_name": "closest_unused_to_threshold",
+      "validation_row": 6600,
+      "confusion_label": "TN",
+      "y_true": 0,
+      "predicted_positive": false,
+      "threshold": 0.105,
+      "calibrated_probability": 0.1049931044775506,
+      "base_xgboost_probability": 0.1607324331998825,
+      "raw_xgboost_margin": -1.6527884006500244,
+      "shap_expected_value": -1.9141262769699097,
+      "local_additivity_error": 3.727209332282655e-07,
+      "top_positive_source_feature": "number_inpatient",
+      "top_positive_source_shap": 0.29045048356056213,
+      "top_negative_source_feature": "discharge_disposition_id",
+      "top_negative_source_shap": -0.1849353335055639
+    }
+  ],
+  "figure_artifacts": {
+    "high_confidence_true_positive": {
+      "png": "reports\\figures\\phase9_validation_shap_waterfall_high_confidence_true_positive.png",
+      "svg": "reports\\figures\\phase9_validation_shap_waterfall_high_confidence_true_positive.svg"
+    },
+    "high_confidence_false_positive": {
+      "png": "reports\\figures\\phase9_validation_shap_waterfall_high_confidence_false_positive.png",
+      "svg": "reports\\figures\\phase9_validation_shap_waterfall_high_confidence_false_positive.svg"
+    },
+    "near_threshold_false_negative": {
+      "png": "reports\\figures\\phase9_validation_shap_waterfall_near_threshold_false_negative.png",
+      "svg": "reports\\figures\\phase9_validation_shap_waterfall_near_threshold_false_negative.svg"
+    },
+    "low_risk_true_negative": {
+      "png": "reports\\figures\\phase9_validation_shap_waterfall_low_risk_true_negative.png",
+      "svg": "reports\\figures\\phase9_validation_shap_waterfall_low_risk_true_negative.svg"
+    },
+    "closest_unused_to_threshold": {
+      "png": "reports\\figures\\phase9_validation_shap_waterfall_closest_unused_to_threshold.png",
+      "svg": "reports\\figures\\phase9_validation_shap_waterfall_closest_unused_to_threshold.svg"
+    }
+  },
+  "output_artifacts": {
+    "case_table": "reports\\tables\\phase9_local_explanation_cases.csv",
+    "source_contributions": "reports\\tables\\phase9_local_source_contributions.csv"
+  },
+  "privacy": {
+    "encounter_id_saved": false,
+    "patient_nbr_saved": false,
+    "source_row_saved": false,
+    "validation_row_is_positional_only": true
+  },
+  "data_policy": {
+    "fit_split": "train",
+    "case_selection_split": "validation",
+    "explanation_split": "validation",
+    "test_used": false
+  }
+}
