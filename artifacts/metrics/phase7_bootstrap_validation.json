@@ -1,0 +1,184 @@
+{
+  "phase": 7,
+  "analysis": "validation_stratified_paired_bootstrap",
+  "data_policy": {
+    "evaluation_split": "validation",
+    "test_used": false,
+    "identifiers_present": false
+  },
+  "bootstrap_protocol": {
+    "method": "stratified_bootstrap_with_replacement",
+    "paired_across_models": true,
+    "n_resamples": 2000,
+    "random_state": 47,
+    "confidence_level": 0.95,
+    "interval_method": "percentile"
+  },
+  "prediction_artifact": {
+    "path": "artifacts\\predictions\\phase7_validation_probabilities.csv",
+    "sha256": "708aaa26cf9c55a10273ba8981b4f6080e4ac64e9e414e88f9fd41a7f45e9bec"
+  },
+  "sample_counts": {
+    "validation": 10496,
+    "positive": 942,
+    "negative": 9554
+  },
+  "model_metrics": {
+    "logistic_regression": {
+      "roc_auc": {
+        "estimate": 0.6428755399523637,
+        "ci_lower": 0.6228952024629695,
+        "ci_upper": 0.6611823167850907,
+        "bootstrap_standard_error": 0.009722950197664839
+      },
+      "average_precision": {
+        "estimate": 0.15968689435949956,
+        "ci_lower": 0.1460487963921113,
+        "ci_upper": 0.1758103368069234,
+        "bootstrap_standard_error": 0.007715946722612977
+      },
+      "brier_score": {
+        "estimate": 0.07980917082618648,
+        "ci_lower": 0.0790263307518174,
+        "ci_upper": 0.08062892139002027,
+        "bootstrap_standard_error": 0.00041651537596227613
+      },
+      "log_loss": {
+        "estimate": 0.2909613164635314,
+        "ci_lower": 0.28761327011242965,
+        "ci_upper": 0.2944754291783906,
+        "bootstrap_standard_error": 0.0017457351202838907
+      }
+    },
+    "early_stopped_xgboost": {
+      "roc_auc": {
+        "estimate": 0.6457808047851368,
+        "ci_lower": 0.6263960774202467,
+        "ci_upper": 0.6647610289950919,
+        "bootstrap_standard_error": 0.009645333813155858
+      },
+      "average_precision": {
+        "estimate": 0.16431400857625394,
+        "ci_lower": 0.14963068857880507,
+        "ci_upper": 0.1817448321933984,
+        "bootstrap_standard_error": 0.008435044703975443
+      },
+      "brier_score": {
+        "estimate": 0.07963086979711659,
+        "ci_lower": 0.07879290192411709,
+        "ci_upper": 0.08055719387272721,
+        "bootstrap_standard_error": 0.00045219004359272475
+      },
+      "log_loss": {
+        "estimate": 0.290351768707989,
+        "ci_lower": 0.28696488871625403,
+        "ci_upper": 0.2940544713806912,
+        "bootstrap_standard_error": 0.0018075901707370213
+      }
+    },
+    "tuned_xgboost": {
+      "roc_auc": {
+        "estimate": 0.6508197675788134,
+        "ci_lower": 0.6317521573649746,
+        "ci_upper": 0.6691152984132656,
+        "bootstrap_standard_error": 0.009664885883856096
+      },
+      "average_precision": {
+        "estimate": 0.17163851047457246,
+        "ci_lower": 0.1560068913350777,
+        "ci_upper": 0.19040476088687158,
+        "bootstrap_standard_error": 0.008834954177075674
+      },
+      "brier_score": {
+        "estimate": 0.08055260426223065,
+        "ci_lower": 0.07976657020389737,
+        "ci_upper": 0.08136274132090804,
+        "bootstrap_standard_error": 0.00041492221302820664
+      },
+      "log_loss": {
+        "estimate": 0.2959751633387577,
+        "ci_lower": 0.2931785899570361,
+        "ci_upper": 0.2987093265740571,
+        "bootstrap_standard_error": 0.0014395072999738659
+      }
+    }
+  },
+  "paired_differences": {
+    "tuned_xgboost_minus_logistic_regression": {
+      "roc_auc": {
+        "estimate": 0.007944227626449751,
+        "ci_lower": -0.0017584119011523588,
+        "ci_upper": 0.01801446837886953,
+        "bootstrap_standard_error": 0.0050292490382586276,
+        "higher_is_better": true,
+        "ci_excludes_zero": false,
+        "ci_consistently_favors_model_a": false
+      },
+      "average_precision": {
+        "estimate": 0.011951616115072894,
+        "ci_lower": 0.0017242616318599037,
+        "ci_upper": 0.02250178029146403,
+        "bootstrap_standard_error": 0.005233595312380451,
+        "higher_is_better": true,
+        "ci_excludes_zero": true,
+        "ci_consistently_favors_model_a": true
+      },
+      "brier_score": {
+        "estimate": 0.0007434334360441747,
+        "ci_lower": 0.0002740034390798453,
+        "ci_upper": 0.0012034151550209466,
+        "bootstrap_standard_error": 0.00024230460022673,
+        "higher_is_better": false,
+        "ci_excludes_zero": true,
+        "ci_consistently_favors_model_a": false
+      },
+      "log_loss": {
+        "estimate": 0.005013846875226269,
+        "ci_lower": 0.003229548452667956,
+        "ci_upper": 0.006683662147816524,
+        "bootstrap_standard_error": 0.0008772325423201798,
+        "higher_is_better": false,
+        "ci_excludes_zero": true,
+        "ci_consistently_favors_model_a": false
+      }
+    },
+    "tuned_xgboost_minus_early_stopped_xgboost": {
+      "roc_auc": {
+        "estimate": 0.00503896279367666,
+        "ci_lower": -0.0029425542685736295,
+        "ci_upper": 0.012905701783626267,
+        "bootstrap_standard_error": 0.004005155533496998,
+        "higher_is_better": true,
+        "ci_excludes_zero": false,
+        "ci_consistently_favors_model_a": false
+      },
+      "average_precision": {
+        "estimate": 0.007324501898318514,
+        "ci_lower": -0.0015817016001450788,
+        "ci_upper": 0.015538197783826806,
+        "bootstrap_standard_error": 0.004291884869664676,
+        "higher_is_better": true,
+        "ci_excludes_zero": false,
+        "ci_consistently_favors_model_a": false
+      },
+      "brier_score": {
+        "estimate": 0.0009217344651140658,
+        "ci_lower": 0.00048028895817565296,
+        "ci_upper": 0.0013604378135388224,
+        "bootstrap_standard_error": 0.00022420243997037847,
+        "higher_is_better": false,
+        "ci_excludes_zero": true,
+        "ci_consistently_favors_model_a": false
+      },
+      "log_loss": {
+        "estimate": 0.005623394630768663,
+        "ci_lower": 0.004021503750250841,
+        "ci_upper": 0.007214089135675461,
+        "bootstrap_standard_error": 0.0008096009899424301,
+        "higher_is_better": false,
+        "ci_excludes_zero": true,
+        "ci_consistently_favors_model_a": false
+      }
+    }
+  }
+}

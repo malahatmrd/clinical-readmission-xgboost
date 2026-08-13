@@ -1,0 +1,89 @@
+{
+  "phase": 7,
+  "analysis": "final_validation_discrimination_and_calibration_summary",
+  "selected_variant": "tuned_xgboost_sigmoid",
+  "selection_status": "frozen_before_test_evaluation",
+  "sample_counts": {
+    "validation": 10496,
+    "positive": 942,
+    "negative": 9554
+  },
+  "bootstrap_protocol": {
+    "method": "stratified_bootstrap_with_replacement",
+    "paired_across_models": true,
+    "n_resamples": 2000,
+    "random_state": 47,
+    "confidence_level": 0.95,
+    "interval_method": "percentile"
+  },
+  "models": {
+    "logistic_regression": {
+      "model": "logistic_regression",
+      "roc_auc": 0.6428755399523637,
+      "roc_auc_ci_lower": 0.6228952024629695,
+      "roc_auc_ci_upper": 0.6611823167850907,
+      "average_precision": 0.15968689435949956,
+      "average_precision_ci_lower": 0.1460487963921113,
+      "average_precision_ci_upper": 0.1758103368069234,
+      "brier_score": 0.07980917082618648,
+      "brier_ci_lower": 0.0790263307518174,
+      "brier_ci_upper": 0.08062892139002027,
+      "log_loss": 0.2909613164635314,
+      "log_loss_ci_lower": 0.28761327011242965,
+      "log_loss_ci_upper": 0.2944754291783906,
+      "calibration_intercept": -0.308484292652704,
+      "calibration_slope": 0.8613917203570713,
+      "quantile_ece": 0.0069320596892698625,
+      "mean_predicted_probability": 0.0900149400740823
+    },
+    "early_stopped_xgboost": {
+      "model": "early_stopped_xgboost",
+      "roc_auc": 0.6457808047851368,
+      "roc_auc_ci_lower": 0.6263960774202467,
+      "roc_auc_ci_upper": 0.6647610289950919,
+      "average_precision": 0.16431400857625394,
+      "average_precision_ci_lower": 0.14963068857880507,
+      "average_precision_ci_upper": 0.1817448321933984,
+      "brier_score": 0.07963086979711659,
+      "brier_ci_lower": 0.07879290192411709,
+      "brier_ci_upper": 0.08055719387272721,
+      "log_loss": 0.290351768707989,
+      "log_loss_ci_lower": 0.28696488871625403,
+      "log_loss_ci_upper": 0.2940544713806912,
+      "calibration_intercept": -0.3364343465040863,
+      "calibration_slope": 0.8502442988544704,
+      "quantile_ece": 0.008977241559308308,
+      "mean_predicted_probability": 0.09051636469879001
+    },
+    "tuned_xgboost_sigmoid": {
+      "model": "tuned_xgboost_sigmoid",
+      "roc_auc": 0.6508197675788134,
+      "roc_auc_ci_lower": 0.6317521573649746,
+      "roc_auc_ci_upper": 0.6691152984132656,
+      "average_precision": 0.17163851047457246,
+      "average_precision_ci_lower": 0.1560068913350777,
+      "average_precision_ci_upper": 0.19040476088687158,
+      "brier_score": 0.07941848459238085,
+      "brier_ci_lower": 0.07852251171646772,
+      "brier_ci_upper": 0.08033672148143019,
+      "log_loss": 0.2897418697314984,
+      "log_loss_ci_lower": 0.28654982003739937,
+      "log_loss_ci_upper": 0.2930145706596937,
+      "calibration_intercept": -0.11823240366057175,
+      "calibration_slope": 0.9484025976798671,
+      "quantile_ece": 0.008876456927102433,
+      "mean_predicted_probability": 0.09000934280013292
+    }
+  },
+  "data_policy": {
+    "development_evaluation_split": "validation",
+    "test_used": false,
+    "threshold_optimized": false
+  },
+  "source_artifacts": {
+    "base_bootstrap": "artifacts\\metrics\\phase7_bootstrap_validation.json",
+    "calibration_bootstrap": "artifacts\\metrics\\phase7_calibration_bootstrap.json",
+    "calibration_candidates": "artifacts\\metrics\\phase7_calibration_candidates_validation.json",
+    "calibration_selection": "artifacts\\metrics\\phase7_calibration_selection.json"
+  }
+}

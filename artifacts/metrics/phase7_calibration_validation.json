@@ -1,0 +1,54 @@
+{
+  "phase": 7,
+  "analysis": "validation_calibration_diagnostics",
+  "data_policy": {
+    "evaluation_split": "validation",
+    "test_used": false,
+    "identifiers_present": false
+  },
+  "prediction_artifact": {
+    "path": "artifacts\\predictions\\phase7_validation_probabilities.csv",
+    "sha256": "708aaa26cf9c55a10273ba8981b4f6080e4ac64e9e414e88f9fd41a7f45e9bec"
+  },
+  "sample_counts": {
+    "validation": 10496,
+    "positive": 942,
+    "negative": 9554
+  },
+  "calibration_protocol": {
+    "curve_strategy": "quantile",
+    "n_bins": 10,
+    "ideal_intercept": 0.0,
+    "ideal_slope": 1.0,
+    "ideal_ece": 0.0
+  },
+  "models": {
+    "logistic_regression": {
+      "observed_prevalence": 0.0897484756097561,
+      "mean_predicted_probability": 0.0900149400740823,
+      "mean_probability_minus_prevalence": 0.0002664644643261965,
+      "calibration_intercept": -0.308484292652704,
+      "calibration_slope": 0.8613917203570713,
+      "quantile_ece": 0.0069320596892698625,
+      "n_bins": 10
+    },
+    "early_stopped_xgboost": {
+      "observed_prevalence": 0.0897484756097561,
+      "mean_predicted_probability": 0.09051636469879001,
+      "mean_probability_minus_prevalence": 0.000767889089033913,
+      "calibration_intercept": -0.3364343465040863,
+      "calibration_slope": 0.8502442988544704,
+      "quantile_ece": 0.008977241559308308,
+      "n_bins": 10
+    },
+    "tuned_xgboost": {
+      "observed_prevalence": 0.0897484756097561,
+      "mean_predicted_probability": 0.12710331009851372,
+      "mean_probability_minus_prevalence": 0.03735483448875762,
+      "calibration_intercept": -0.1521827090821985,
+      "calibration_slope": 1.1371291856501247,
+      "quantile_ece": 0.03735483448875762,
+      "n_bins": 10
+    }
+  }
+}

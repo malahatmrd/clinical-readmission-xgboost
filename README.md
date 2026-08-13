@@ -253,7 +253,7 @@ Current status:
 - [x] Phase 4 - preprocessing and logistic-regression baseline
 - [x] Phase 5 - XGBoost training
 - [x] Phase 6 - class-imbalance and hyperparameter optimization
-- [ ] Phase 7 — discrimination and calibration analysis
+- [x] Phase 7 - discrimination and calibration analysis
 - [ ] Phase 8 — validation-only threshold selection
 - [ ] Phase 9 — SHAP explainability
 - [ ] Phase 10 — subgroup and robustness analysis
