@@ -1,0 +1,140 @@
+{
+  "phase": 10,
+  "analysis": "repeated_encounter_robustness",
+  "analysis_role": "distribution_and_encounter_position_robustness",
+  "frozen_configuration": {
+    "model": "tuned_xgboost_sigmoid",
+    "tree_count": 155,
+    "calibration_method": "sigmoid",
+    "reference_threshold": 0.105,
+    "model_specification_reselected": false,
+    "calibration_reselected": false,
+    "threshold_reselected": false
+  },
+  "reproduction_audit": {
+    "maximum_validation_probability_error": 9.71445146547012e-17,
+    "tolerance": 1e-07,
+    "passed": true
+  },
+  "cohort_protocol": {
+    "training_cohort": "primary_train",
+    "reference_evaluation": "primary_validation",
+    "robustness_cohort_source": "all_eligible_encounters",
+    "robustness_patient_partition": "original_validation_patients_only",
+    "repeated_encounters_allowed": true,
+    "new_split_created": false,
+    "test_patients_used": false
+  },
+  "results": {
+    "primary_validation": {
+      "encounters": 10496,
+      "unique_patients": 10496,
+      "positives": 942,
+      "prevalence": 0.0897484756097561,
+      "mean_predicted_probability": 0.09000934280013292,
+      "mean_probability_minus_prevalence": 0.0002608671903768234,
+      "roc_auc": 0.6508197675788134,
+      "average_precision": 0.17163851047457246,
+      "brier_score": 0.07941848459238085,
+      "log_loss": 0.2897418697314984,
+      "calibration_intercept": -0.11823240366057175,
+      "calibration_slope": 0.9484025976798671,
+      "quantile_ece": 0.008876456927102433,
+      "sensitivity": 0.35668789808917195,
+      "specificity": 0.8311701904961273,
+      "ppv": 0.172396100564392,
+      "npv": 0.9290979290979291,
+      "f1": 0.23244552058111384,
+      "balanced_accuracy": 0.5939290442926496,
+      "alerts_per_100": 18.568978658536587,
+      "number_needed_to_evaluate": 5.800595238095238,
+      "model_net_benefit": 0.013982980480991964
+    },
+    "all_eligible_encounters_for_validation_patients": {
+      "encounters": 14854,
+      "unique_patients": 10496,
+      "positives": 1727,
+      "prevalence": 0.11626497913020062,
+      "mean_predicted_probability": 0.11187146479868948,
+      "mean_probability_minus_prevalence": -0.004393514331511139,
+      "roc_auc": 0.6723468591920302,
+      "average_precision": 0.2237684568908111,
+      "brier_score": 0.09884648414610722,
+      "log_loss": 0.34148031989377203,
+      "calibration_intercept": -0.2761140309873414,
+      "calibration_slope": 0.8349425472089977,
+      "quantile_ece": 0.01716986061394279,
+      "sensitivity": 0.5332947307469601,
+      "specificity": 0.7121200578959397,
+      "ppv": 0.19595744680851063,
+      "npv": 0.9206224148118968,
+      "f1": 0.28660339194025203,
+      "balanced_accuracy": 0.6227073943214498,
+      "alerts_per_100": 31.641308738386964,
+      "number_needed_to_evaluate": 5.10314875135722,
+      "model_net_benefit": 0.03215656599467593
+    },
+    "subsequent_eligible_encounters_only": {
+      "encounters": 4358,
+      "unique_patients": 2453,
+      "positives": 785,
+      "prevalence": 0.18012849931161082,
+      "mean_predicted_probability": 0.16452516661072478,
+      "mean_probability_minus_prevalence": -0.015603332700886041,
+      "roc_auc": 0.6164596112742241,
+      "average_precision": 0.2724639135187562,
+      "brier_score": 0.14563773777527472,
+      "log_loss": 0.4660894921983212,
+      "calibration_intercept": -0.5413129752755867,
+      "calibration_slope": 0.5758685613140851,
+      "quantile_ece": 0.04013393774792648,
+      "sensitivity": 0.7452229299363057,
+      "specificity": 0.39378673383711166,
+      "ppv": 0.21264994547437296,
+      "npv": 0.8755444928438083,
+      "f1": 0.33088235294117646,
+      "balanced_accuracy": 0.5695048318867086,
+      "alerts_per_100": 63.125286828820556,
+      "number_needed_to_evaluate": 4.702564102564103,
+      "model_net_benefit": 0.07592663335392948
+    }
+  },
+  "all_eligible_minus_primary_validation": {
+    "roc_auc": 0.021527091613216753,
+    "average_precision": 0.05212994641623864,
+    "brier_score": 0.01942799955372637,
+    "log_loss": 0.05173845016227363,
+    "calibration_intercept": -0.15788162732676964,
+    "calibration_slope": -0.11346005047086938,
+    "quantile_ece": 0.008293403686840358,
+    "sensitivity": 0.17660683265778815,
+    "specificity": -0.1190501326001876,
+    "ppv": 0.023561346244118625,
+    "alerts_per_100": 13.072330079850378,
+    "model_net_benefit": 0.018173585513683966
+  },
+  "source_artifacts": {
+    "phase7_predictions": {
+      "path": "artifacts\\predictions\\phase7_calibration_candidate_probabilities.csv",
+      "sha256": "8160832b3352ba4d693bbf2df1541c30b705a5db155017675440e729589fa6df"
+    },
+    "all_eligible_cohort": {
+      "path": "data\\interim\\cohorts\\all_eligible_encounters.csv",
+      "sha256": "2996d33e47314b573ccf893d04491093edffb4aea2b5a36964f6a0d94b21ea49"
+    }
+  },
+  "privacy": {
+    "row_level_predictions_saved": false,
+    "patient_identifiers_saved": false
+  },
+  "limitations": {
+    "repeated_encounters_are_correlated_within_patient": true,
+    "not_external_validation": true
+  },
+  "output_table": "reports\\tables\\phase10_repeated_encounter_robustness.csv",
+  "data_policy": {
+    "fit_split": "train",
+    "robustness_partition": "validation_patients",
+    "test_used": false
+  }
+}

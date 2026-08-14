@@ -1,0 +1,498 @@
+{
+  "phase": 10,
+  "analysis": "validation_subgroup_bootstrap",
+  "frozen_configuration": {
+    "model": "tuned_xgboost_sigmoid",
+    "reference_threshold": 0.105,
+    "model_retrained": false,
+    "calibration_reselected": false,
+    "threshold_reselected": false
+  },
+  "bootstrap_protocol": {
+    "method": "stratified_bootstrap_with_replacement",
+    "n_resamples": 2000,
+    "base_random_state": 47,
+    "confidence_level": 0.95,
+    "interval_method": "percentile",
+    "prevalence_preserved_within_subgroup": true
+  },
+  "metrics": [
+    "roc_auc",
+    "average_precision",
+    "brier_score",
+    "sensitivity",
+    "specificity",
+    "ppv",
+    "alerts_per_100"
+  ],
+  "reportable_subgroups": {
+    "gender::Female": {
+      "subgroup_name": "gender",
+      "subgroup_value": "Female",
+      "rows": 5611,
+      "positives": 508,
+      "random_state": 47,
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.6618979726299645,
+          "ci_lower": 0.6364790676242631,
+          "ci_upper": 0.6858883042783233,
+          "bootstrap_standard_error": 0.012495749591319457
+        },
+        "average_precision": {
+          "estimate": 0.18487488640181376,
+          "ci_lower": 0.1621120142633487,
+          "ci_upper": 0.2144899646593236,
+          "bootstrap_standard_error": 0.013417521441947928
+        },
+        "brier_score": {
+          "estimate": 0.0794664086487872,
+          "ci_lower": 0.07815535223323,
+          "ci_upper": 0.0807156194062922,
+          "bootstrap_standard_error": 0.0006602555757225319
+        },
+        "sensitivity": {
+          "estimate": 0.3700787401574803,
+          "ci_lower": 0.32677165354330706,
+          "ci_upper": 0.41141732283464566,
+          "bootstrap_standard_error": 0.021593518185038282
+        },
+        "specificity": {
+          "estimate": 0.8222614148540075,
+          "ci_lower": 0.812066431510876,
+          "ci_upper": 0.8328434254360181,
+          "bootstrap_standard_error": 0.005363719659898773
+        },
+        "ppv": {
+          "estimate": 0.17168949771689498,
+          "ci_lower": 0.15433842357849042,
+          "ci_upper": 0.19005547494558828,
+          "bootstrap_standard_error": 0.009293276211250666
+        },
+        "alerts_per_100": {
+          "estimate": 19.515237925503477,
+          "ci_lower": 18.49937622527179,
+          "ci_upper": 20.531099625735163,
+          "bootstrap_standard_error": 0.5277892529046937
+        }
+      }
+    },
+    "gender::Male": {
+      "subgroup_name": "gender",
+      "subgroup_value": "Male",
+      "rows": 4885,
+      "positives": 434,
+      "random_state": 48,
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.6374865794151782,
+          "ci_lower": 0.6091706919793305,
+          "ci_upper": 0.6660339234076741,
+          "bootstrap_standard_error": 0.014238133357823772
+        },
+        "average_precision": {
+          "estimate": 0.1590155431530186,
+          "ci_lower": 0.1406523916164919,
+          "ci_upper": 0.18520801979796783,
+          "bootstrap_standard_error": 0.011692848870863795
+        },
+        "brier_score": {
+          "estimate": 0.0793634381480623,
+          "ci_lower": 0.07811637833827895,
+          "ci_upper": 0.08053202706211518,
+          "bootstrap_standard_error": 0.0006328444530360798
+        },
+        "sensitivity": {
+          "estimate": 0.34101382488479265,
+          "ci_lower": 0.29723502304147464,
+          "ci_upper": 0.3870967741935484,
+          "bootstrap_standard_error": 0.022607508011726167
+        },
+        "specificity": {
+          "estimate": 0.841383958660975,
+          "ci_lower": 0.8308245338126263,
+          "ci_upper": 0.8519433835093237,
+          "bootstrap_standard_error": 0.005381112580457856
+        },
+        "ppv": {
+          "estimate": 0.17330210772833723,
+          "ci_lower": 0.15256056686869712,
+          "ci_upper": 0.1946084989663782,
+          "bootstrap_standard_error": 0.010700775365234812
+        },
+        "alerts_per_100": {
+          "estimate": 17.482088024564995,
+          "ci_lower": 16.47901740020471,
+          "ci_upper": 18.50562947799386,
+          "bootstrap_standard_error": 0.5286823805491709
+        }
+      }
+    },
+    "race::AfricanAmerican": {
+      "subgroup_name": "race",
+      "subgroup_value": "AfricanAmerican",
+      "rows": 1896,
+      "positives": 169,
+      "random_state": 49,
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.6760534908501592,
+          "ci_lower": 0.6348814340975046,
+          "ci_upper": 0.7173220826209556,
+          "bootstrap_standard_error": 0.021129186422109387
+        },
+        "average_precision": {
+          "estimate": 0.17620111815192885,
+          "ci_lower": 0.14762844052758306,
+          "ci_upper": 0.22227645675363045,
+          "bootstrap_standard_error": 0.019311235848840976
+        },
+        "brier_score": {
+          "estimate": 0.07916213726971844,
+          "ci_lower": 0.07739417913328982,
+          "ci_upper": 0.0808984233762013,
+          "bootstrap_standard_error": 0.0008900326060604161
+        },
+        "sensitivity": {
+          "estimate": 0.3136094674556213,
+          "ci_lower": 0.2485207100591716,
+          "ci_upper": 0.38461538461538464,
+          "bootstrap_standard_error": 0.034853857951793285
+        },
+        "specificity": {
+          "estimate": 0.8650839606253619,
+          "ci_lower": 0.8488708743485813,
+          "ci_upper": 0.8807180081065431,
+          "bootstrap_standard_error": 0.008180064171194209
+        },
+        "ppv": {
+          "estimate": 0.1853146853146853,
+          "ci_lower": 0.14854982780886783,
+          "ci_upper": 0.2222222222222222,
+          "bootstrap_standard_error": 0.019051417783793535
+        },
+        "alerts_per_100": {
+          "estimate": 15.084388185654007,
+          "ci_lower": 13.554852320675106,
+          "ci_upper": 16.666666666666664,
+          "bootstrap_standard_error": 0.8095939324858968
+        }
+      }
+    },
+    "race::Caucasian": {
+      "subgroup_name": "race",
+      "subgroup_value": "Caucasian",
+      "rows": 7885,
+      "positives": 727,
+      "random_state": 50,
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.6444977637779297,
+          "ci_lower": 0.6216979117064121,
+          "ci_upper": 0.6656661917313013,
+          "bootstrap_standard_error": 0.011188170141581
+        },
+        "average_precision": {
+          "estimate": 0.17534570168587715,
+          "ci_lower": 0.15623634460177513,
+          "ci_upper": 0.1978538987080487,
+          "bootstrap_standard_error": 0.01071558633888647
+        },
+        "brier_score": {
+          "estimate": 0.08133147318420199,
+          "ci_lower": 0.0802261414535224,
+          "ci_upper": 0.08243239296306276,
+          "bootstrap_standard_error": 0.0005695406800202551
+        },
+        "sensitivity": {
+          "estimate": 0.3631361760660248,
+          "ci_lower": 0.328748280605227,
+          "ci_upper": 0.3988995873452545,
+          "bootstrap_standard_error": 0.01768445033014209
+        },
+        "specificity": {
+          "estimate": 0.820480581167924,
+          "ci_lower": 0.8116792400111763,
+          "ci_upper": 0.8292854149203688,
+          "bootstrap_standard_error": 0.004595628357320955
+        },
+        "ppv": {
+          "estimate": 0.17043253712072304,
+          "ci_lower": 0.15496204933586338,
+          "ci_upper": 0.18567875090082767,
+          "bootstrap_standard_error": 0.007821128284800536
+        },
+        "alerts_per_100": {
+          "estimate": 19.644895370957514,
+          "ci_lower": 18.769499048826887,
+          "ci_upper": 20.51997463538364,
+          "bootstrap_standard_error": 0.44597585465084555
+        }
+      }
+    },
+    "race::Missing": {
+      "subgroup_name": "race",
+      "subgroup_value": "Missing",
+      "rows": 288,
+      "positives": 21,
+      "random_state": 51,
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.6739789548778312,
+          "ci_lower": 0.5523319065453897,
+          "ci_upper": 0.7861824505082932,
+          "bootstrap_standard_error": 0.06070395908882757
+        },
+        "average_precision": {
+          "estimate": 0.20381229615370272,
+          "ci_lower": 0.10531861193664814,
+          "ci_upper": 0.3838786880697134,
+          "bootstrap_standard_error": 0.07036634472752329
+        },
+        "brier_score": {
+          "estimate": 0.0646857352785177,
+          "ci_lower": 0.060391250837615984,
+          "ci_upper": 0.06778989700682304,
+          "bootstrap_standard_error": 0.001979942035039406
+        },
+        "sensitivity": {
+          "estimate": 0.38095238095238093,
+          "ci_lower": 0.19047619047619047,
+          "ci_upper": 0.6190476190476191,
+          "bootstrap_standard_error": 0.10654860866393108
+        },
+        "specificity": {
+          "estimate": 0.8614232209737828,
+          "ci_lower": 0.8202247191011236,
+          "ci_upper": 0.898876404494382,
+          "bootstrap_standard_error": 0.020674941754976587
+        },
+        "ppv": {
+          "estimate": 0.17777777777777778,
+          "ci_lower": 0.08695652173913043,
+          "ci_upper": 0.27502155172413784,
+          "bootstrap_standard_error": 0.04694420837160105
+        },
+        "alerts_per_100": {
+          "estimate": 15.625,
+          "ci_lower": 11.805555555555555,
+          "ci_upper": 19.791666666666664,
+          "bootstrap_standard_error": 2.0774656590418767
+        }
+      }
+    },
+    "age_group::50-69": {
+      "subgroup_name": "age_group",
+      "subgroup_value": "50-69",
+      "rows": 4211,
+      "positives": 332,
+      "random_state": 52,
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.6568714921557849,
+          "ci_lower": 0.6237718856865979,
+          "ci_upper": 0.6875209267076038,
+          "bootstrap_standard_error": 0.01634793943757909
+        },
+        "average_precision": {
+          "estimate": 0.17226839639021846,
+          "ci_lower": 0.14717912801482258,
+          "ci_upper": 0.20588801556953754,
+          "bootstrap_standard_error": 0.015576096721943078
+        },
+        "brier_score": {
+          "estimate": 0.07010699654032618,
+          "ci_lower": 0.06878713045049133,
+          "ci_upper": 0.07145101323774501,
+          "bootstrap_standard_error": 0.0007035844685004626
+        },
+        "sensitivity": {
+          "estimate": 0.33433734939759036,
+          "ci_lower": 0.286144578313253,
+          "ci_upper": 0.38260542168674655,
+          "bootstrap_standard_error": 0.025635732052827858
+        },
+        "specificity": {
+          "estimate": 0.8775457592162929,
+          "ci_lower": 0.8669695797886053,
+          "ci_upper": 0.8875998968806393,
+          "bootstrap_standard_error": 0.005274879681239679
+        },
+        "ppv": {
+          "estimate": 0.189419795221843,
+          "ci_lower": 0.16315548646991856,
+          "ci_upper": 0.21688896060163879,
+          "bootstrap_standard_error": 0.013516027516969875
+        },
+        "alerts_per_100": {
+          "estimate": 13.915934457373547,
+          "ci_lower": 12.94170030871527,
+          "ci_upper": 14.96081690809784,
+          "bootstrap_standard_error": 0.5256201068181943
+        }
+      }
+    },
+    "age_group::70-89": {
+      "subgroup_name": "age_group",
+      "subgroup_value": "70-89",
+      "rows": 4360,
+      "positives": 462,
+      "random_state": 53,
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.6191153638562567,
+          "ci_lower": 0.5910844361299723,
+          "ci_upper": 0.6462351100242326,
+          "bootstrap_standard_error": 0.013898183227015231
+        },
+        "average_precision": {
+          "estimate": 0.17281149607465068,
+          "ci_lower": 0.15322762363075995,
+          "ci_upper": 0.1999260342732903,
+          "bootstrap_standard_error": 0.01182504562861318
+        },
+        "brier_score": {
+          "estimate": 0.09315930010018426,
+          "ci_lower": 0.09166472235699352,
+          "ci_upper": 0.09457159156592909,
+          "bootstrap_standard_error": 0.0007466628631756448
+        },
+        "sensitivity": {
+          "estimate": 0.4069264069264069,
+          "ci_lower": 0.36147186147186144,
+          "ci_upper": 0.45021645021645024,
+          "bootstrap_standard_error": 0.022853588083702026
+        },
+        "specificity": {
+          "estimate": 0.7555156490507953,
+          "ci_lower": 0.7421754746023602,
+          "ci_upper": 0.7691187788609543,
+          "bootstrap_standard_error": 0.00691251275964042
+        },
+        "ppv": {
+          "estimate": 0.16476774758983348,
+          "ci_lower": 0.14814735540334856,
+          "ci_upper": 0.1820580474934037,
+          "bootstrap_standard_error": 0.008624194509627653
+        },
+        "alerts_per_100": {
+          "estimate": 26.1697247706422,
+          "ci_lower": 24.86238532110092,
+          "ci_upper": 27.500000000000004,
+          "bootstrap_standard_error": 0.6664626366430587
+        }
+      }
+    },
+    "age_group::90+": {
+      "subgroup_name": "age_group",
+      "subgroup_value": "90+",
+      "rows": 272,
+      "positives": 33,
+      "random_state": 54,
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.6041587422340561,
+          "ci_lower": 0.49448142512996074,
+          "ci_upper": 0.7095283377710155,
+          "bootstrap_standard_error": 0.05392343676537405
+        },
+        "average_precision": {
+          "estimate": 0.24410988401412578,
+          "ci_lower": 0.1501620796336203,
+          "ci_upper": 0.38783267009560474,
+          "bootstrap_standard_error": 0.06172725093663174
+        },
+        "brier_score": {
+          "estimate": 0.1026136352833522,
+          "ci_lower": 0.0958945934254662,
+          "ci_upper": 0.1083647788844094,
+          "bootstrap_standard_error": 0.0031698472103509996
+        },
+        "sensitivity": {
+          "estimate": 0.45454545454545453,
+          "ci_lower": 0.30303030303030304,
+          "ci_upper": 0.6363636363636364,
+          "bootstrap_standard_error": 0.0867667320691645
+        },
+        "specificity": {
+          "estimate": 0.7447698744769874,
+          "ci_lower": 0.6903765690376569,
+          "ci_upper": 0.799163179916318,
+          "bootstrap_standard_error": 0.028443446953312412
+        },
+        "ppv": {
+          "estimate": 0.19736842105263158,
+          "ci_lower": 0.13043478260869565,
+          "ci_upper": 0.2666860465116278,
+          "bootstrap_standard_error": 0.03510880592238107
+        },
+        "alerts_per_100": {
+          "estimate": 27.941176470588236,
+          "ci_lower": 22.794117647058822,
+          "ci_upper": 33.455882352941174,
+          "bootstrap_standard_error": 2.7228722462885435
+        }
+      }
+    },
+    "age_group::<50": {
+      "subgroup_name": "age_group",
+      "subgroup_value": "<50",
+      "rows": 1653,
+      "positives": 115,
+      "random_state": 55,
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.669192061966416,
+          "ci_lower": 0.6190788432181827,
+          "ci_upper": 0.7202739300050884,
+          "bootstrap_standard_error": 0.025846473179027617
+        },
+        "average_precision": {
+          "estimate": 0.1560000401055048,
+          "ci_lower": 0.11671603149836253,
+          "ci_upper": 0.2124147172780367,
+          "bootstrap_standard_error": 0.02462015652359643
+        },
+        "brier_score": {
+          "estimate": 0.06307948857618921,
+          "ci_lower": 0.061084937210198496,
+          "ci_upper": 0.0649438005736951,
+          "bootstrap_standard_error": 0.0009726095628892088
+        },
+        "sensitivity": {
+          "estimate": 0.19130434782608696,
+          "ci_lower": 0.12173913043478261,
+          "ci_upper": 0.26956521739130435,
+          "bootstrap_standard_error": 0.037576186653613924
+        },
+        "specificity": {
+          "estimate": 0.9193758127438232,
+          "ci_lower": 0.9063719115734721,
+          "ci_upper": 0.9323797139141743,
+          "bootstrap_standard_error": 0.006878342635194099
+        },
+        "ppv": {
+          "estimate": 0.1506849315068493,
+          "ci_lower": 0.09868421052631579,
+          "ci_upper": 0.2080811071632231,
+          "bootstrap_standard_error": 0.027614800016933446
+        },
+        "alerts_per_100": {
+          "estimate": 8.832425892317,
+          "ci_lower": 7.50151240169389,
+          "ci_upper": 10.16485178463399,
+          "bootstrap_standard_error": 0.6906383423854158
+        }
+      }
+    }
+  },
+  "prediction_artifact": {
+    "path": "artifacts\\predictions\\phase7_calibration_candidate_probabilities.csv",
+    "sha256": "8160832b3352ba4d693bbf2df1541c30b705a5db155017675440e729589fa6df"
+  },
+  "output_table": "reports\\tables\\phase10_validation_subgroup_bootstrap.csv",
+  "data_policy": {
+    "evaluation_split": "validation",
+    "test_used": false
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "phase": 10,
+  "analysis": "patient_cluster_bootstrap_repeated_encounter_robustness",
+  "comparison": {
+    "reference": "primary_validation",
+    "robustness": "all_eligible_encounters_for_validation_patients",
+    "difference_definition": "robustness_minus_reference"
+  },
+  "bootstrap_protocol": {
+    "unit": "patient",
+    "method": "paired_patient_cluster_bootstrap_with_replacement",
+    "n_resamples": 2000,
+    "random_state": 47,
+    "confidence_level": 0.95,
+    "interval_method": "percentile",
+    "all_encounters_for_sampled_patient_replicated_together": true
+  },
+  "frozen_configuration": {
+    "model": "tuned_xgboost_sigmoid",
+    "tree_count": 155,
+    "calibration_method": "sigmoid",
+    "reference_threshold": 0.105,
+    "model_reselected": false,
+    "calibration_reselected": false,
+    "threshold_reselected": false
+  },
+  "sample_counts": {
+    "validation_patients": 10496,
+    "primary_encounters": 10496,
+    "all_eligible_encounters": 14854
+  },
+  "point_metrics": {
+    "primary": {
+      "roc_auc": 0.6508197675788134,
+      "average_precision": 0.17163851047457246,
+      "brier_score": 0.07941848459238085,
+      "sensitivity": 0.35668789808917195,
+      "specificity": 0.8311701904961273,
+      "ppv": 0.172396100564392,
+      "alerts_per_100": 18.568978658536587
+    },
+    "all_eligible": {
+      "roc_auc": 0.6723468591920302,
+      "average_precision": 0.2237684568908111,
+      "brier_score": 0.09884648414610722,
+      "sensitivity": 0.5332947307469601,
+      "specificity": 0.7121200578959397,
+      "ppv": 0.19595744680851063,
+      "alerts_per_100": 31.641308738386964
+    }
+  },
+  "differences": {
+    "roc_auc": {
+      "estimate": 0.021527091613216753,
+      "ci_lower": 0.007980555864070102,
+      "ci_upper": 0.035774008343653095,
+      "bootstrap_standard_error": 0.007190154335665549
+    },
+    "average_precision": {
+      "estimate": 0.05212994641623864,
+      "ci_lower": 0.029050073383780947,
+      "ci_upper": 0.07814120809295881,
+      "bootstrap_standard_error": 0.012429720977212767
+    },
+    "brier_score": {
+      "estimate": 0.01942799955372637,
+      "ci_lower": 0.01629741809938417,
+      "ci_upper": 0.02256518897690088,
+      "bootstrap_standard_error": 0.0016012500569827727
+    },
+    "sensitivity": {
+      "estimate": 0.17660683265778815,
+      "ci_lower": 0.15287479528102882,
+      "ci_upper": 0.20162305268692543,
+      "bootstrap_standard_error": 0.012504152861247952
+    },
+    "specificity": {
+      "estimate": -0.1190501326001876,
+      "ci_lower": -0.12646478324505514,
+      "ci_upper": -0.1117499832245385,
+      "bootstrap_standard_error": 0.0037272445298049267
+    },
+    "ppv": {
+      "estimate": 0.023561346244118625,
+      "ci_lower": 0.00864127123953948,
+      "ci_upper": 0.03885292562470897,
+      "bootstrap_standard_error": 0.007665375657284386
+    },
+    "alerts_per_100": {
+      "estimate": 13.072330079850378,
+      "ci_lower": 12.289372904755773,
+      "ci_upper": 13.925623918471736,
+      "bootstrap_standard_error": 0.4105689050440316
+    }
+  },
+  "reproduction_audit": {
+    "maximum_validation_probability_error": 9.71445146547012e-17,
+    "tolerance": 1e-07,
+    "passed": true
+  },
+  "prediction_artifact": {
+    "path": "artifacts\\predictions\\phase7_calibration_candidate_probabilities.csv",
+    "sha256": "8160832b3352ba4d693bbf2df1541c30b705a5db155017675440e729589fa6df"
+  },
+  "privacy": {
+    "patient_identifiers_saved": false,
+    "row_level_predictions_saved": false
+  },
+  "data_policy": {
+    "fit_split": "train",
+    "evaluation_patient_partition": "validation",
+    "new_split_created": false,
+    "test_used": false
+  },
+  "output_table": "reports\\tables\\phase10_cluster_bootstrap.csv"
+}

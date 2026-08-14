@@ -232,7 +232,7 @@ Run:
 
 Current test suite:
 
-`14 passed`
+`111 passed`
 
 ## Code Quality
 
@@ -256,8 +256,28 @@ Current status:
 - [x] Phase 7 - discrimination and calibration analysis
 - [x] Phase 8 - validation-only threshold selection
 - [x] Phase 9 - SHAP explainability
-- [ ] Phase 10 — subgroup and robustness analysis
-- [ ] Phase 11 — final model card and reproducibility release
+- [x] Phase 10 — subgroup and robustness analysis
+- [ ] - [ ] Phase 11 — final model card and reproducibility release
+
+## Subgroup and Robustness Analysis
+
+The frozen Validation model was evaluated across predefined gender, race, and
+age subgroups using bootstrap uncertainty estimates. No pairwise subgroup
+ROC-AUC comparison had a 95% confidence interval excluding zero, although the
+fixed reference threshold produced different operating characteristics across
+some groups, particularly age strata.
+
+Repeated-encounter robustness analysis showed substantial case-mix and
+operating-point shift when all eligible encounters from the original
+Validation patients were included. Patient-cluster bootstrap confirmed these
+differences while preserving within-patient correlation.
+
+No model, calibration, or threshold re-selection was performed, and the Test
+set remained locked.
+
+Detailed methodology and results:
+
+`docs/subgroup_robustness.md`
 
 ## Clinical and Reproducibility Limitations
 

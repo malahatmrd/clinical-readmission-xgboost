@@ -1,0 +1,594 @@
+{
+  "phase": 10,
+  "analysis": "independent_validation_subgroup_differences",
+  "interpretation": {
+    "analysis_role": "exploratory_characterization",
+    "difference_definition": "group_a_minus_group_b",
+    "ci_excludes_zero_is_not_formal_fairness_proof": true,
+    "multiple_comparison_adjustment": false
+  },
+  "frozen_configuration": {
+    "model": "tuned_xgboost_sigmoid",
+    "reference_threshold": 0.105,
+    "model_retrained": false,
+    "calibration_reselected": false,
+    "threshold_reselected": false
+  },
+  "bootstrap_protocol": {
+    "method": "independent_stratified_bootstrap_within_each_subgroup",
+    "n_resamples": 2000,
+    "base_random_state": 47,
+    "confidence_level": 0.95,
+    "interval_method": "percentile"
+  },
+  "metrics": [
+    "roc_auc",
+    "average_precision",
+    "brier_score",
+    "sensitivity",
+    "specificity",
+    "ppv",
+    "alerts_per_100"
+  ],
+  "comparisons": {
+    "gender::Female__vs__Male": {
+      "subgroup_name": "gender",
+      "group_a": "Female",
+      "group_b": "Male",
+      "rows_a": 5611,
+      "rows_b": 4885,
+      "positives_a": 508,
+      "positives_b": 434,
+      "random_state": 47,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.02441139321478636,
+          "ci_lower": -0.014099852537293732,
+          "ci_upper": 0.06069454969310688,
+          "bootstrap_standard_error": 0.019014349375734093
+        },
+        "average_precision": {
+          "estimate": 0.025859343248795158,
+          "ci_lower": -0.009445973996350922,
+          "ci_upper": 0.05997448433747424,
+          "bootstrap_standard_error": 0.017777866591843928
+        },
+        "brier_score": {
+          "estimate": 0.00010297050072489988,
+          "ci_lower": -0.0016371876107627757,
+          "ci_upper": 0.0019470108336019992,
+          "bootstrap_standard_error": 0.0009194805280624919
+        },
+        "sensitivity": {
+          "estimate": 0.029064915272687675,
+          "ci_lower": -0.03301099459341772,
+          "ci_upper": 0.08926802496462131,
+          "bootstrap_standard_error": 0.03158970703523175
+        },
+        "specificity": {
+          "estimate": -0.01912254380696754,
+          "ci_lower": -0.03440940816000105,
+          "ci_upper": -0.003984401887286753,
+          "bootstrap_standard_error": 0.007529458705701631
+        },
+        "ppv": {
+          "estimate": -0.0016126100114422504,
+          "ci_lower": -0.030058291014794587,
+          "ci_upper": 0.025144635473969074,
+          "bootstrap_standard_error": 0.01419704924435993
+        },
+        "alerts_per_100": {
+          "estimate": 2.033149900938483,
+          "ci_lower": 0.5598298378295187,
+          "ci_upper": 3.4937746570698285,
+          "bootstrap_standard_error": 0.7467212150147504
+        }
+      }
+    },
+    "race::AfricanAmerican__vs__Caucasian": {
+      "subgroup_name": "race",
+      "group_a": "AfricanAmerican",
+      "group_b": "Caucasian",
+      "rows_a": 1896,
+      "rows_b": 7885,
+      "positives_a": 169,
+      "positives_b": 727,
+      "random_state": 48,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.031555727072229534,
+          "ci_lower": -0.01614426199883663,
+          "ci_upper": 0.07399303193707726,
+          "bootstrap_standard_error": 0.02322585398185847
+        },
+        "average_precision": {
+          "estimate": 0.000855416466051695,
+          "ci_lower": -0.03542358111259182,
+          "ci_upper": 0.05185569905318499,
+          "bootstrap_standard_error": 0.02192942536324977
+        },
+        "brier_score": {
+          "estimate": -0.002169335914483553,
+          "ci_lower": -0.004202617643232092,
+          "ci_upper": -0.0001788321699376473,
+          "bootstrap_standard_error": 0.0010445878162715664
+        },
+        "sensitivity": {
+          "estimate": -0.04952670861040348,
+          "ci_lower": -0.12850797229434405,
+          "ci_upper": 0.023283453928359146,
+          "bootstrap_standard_error": 0.039567771032520314
+        },
+        "specificity": {
+          "estimate": 0.044603379457437864,
+          "ci_lower": 0.026307630255820613,
+          "ci_upper": 0.0632748749258405,
+          "bootstrap_standard_error": 0.00938892999873776
+        },
+        "ppv": {
+          "estimate": 0.014882148193962275,
+          "ci_lower": -0.02618205041750609,
+          "ci_upper": 0.054518487033740765,
+          "bootstrap_standard_error": 0.02073139037351854
+        },
+        "alerts_per_100": {
+          "estimate": -4.560507185303507,
+          "ci_lower": -6.399263610069858,
+          "ci_upper": -2.7738893615768894,
+          "bootstrap_standard_error": 0.9338999811672072
+        }
+      }
+    },
+    "race::AfricanAmerican__vs__Missing": {
+      "subgroup_name": "race",
+      "group_a": "AfricanAmerican",
+      "group_b": "Missing",
+      "rows_a": 1896,
+      "rows_b": 288,
+      "positives_a": 169,
+      "positives_b": 21,
+      "random_state": 49,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.0020745359723279844,
+          "ci_lower": -0.12180524148660493,
+          "ci_upper": 0.12537762830621588,
+          "bootstrap_standard_error": 0.06512490779763676
+        },
+        "average_precision": {
+          "estimate": -0.027611178001773873,
+          "ci_lower": -0.19622129086181808,
+          "ci_upper": 0.0849231201285732,
+          "bootstrap_standard_error": 0.07328338069772719
+        },
+        "brier_score": {
+          "estimate": 0.014476401991200732,
+          "ci_lower": 0.010755419751393349,
+          "ci_upper": 0.01912309043763604,
+          "bootstrap_standard_error": 0.002141344446311447
+        },
+        "sensitivity": {
+          "estimate": -0.06734291349675964,
+          "ci_lower": -0.28712313327697947,
+          "ci_upper": 0.1468089602704987,
+          "bootstrap_standard_error": 0.10994396409688435
+        },
+        "specificity": {
+          "estimate": 0.0036607396515790924,
+          "ci_lower": -0.039275800298844706,
+          "ci_upper": 0.05007243406656559,
+          "bootstrap_standard_error": 0.022924371088142177
+        },
+        "ppv": {
+          "estimate": 0.007536907536907528,
+          "ci_lower": -0.09674241073021075,
+          "ci_upper": 0.10635814385814382,
+          "bootstrap_standard_error": 0.05091982183334573
+        },
+        "alerts_per_100": {
+          "estimate": -0.5406118143459935,
+          "ci_lower": -4.984396976090013,
+          "ci_upper": 3.7760416666666647,
+          "bootstrap_standard_error": 2.2691684692163965
+        }
+      }
+    },
+    "race::Caucasian__vs__Missing": {
+      "subgroup_name": "race",
+      "group_a": "Caucasian",
+      "group_b": "Missing",
+      "rows_a": 7885,
+      "rows_b": 288,
+      "positives_a": 727,
+      "positives_b": 21,
+      "random_state": 50,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": -0.02948119109990155,
+          "ci_lower": -0.1459776310585148,
+          "ci_upper": 0.09973202817939039,
+          "bootstrap_standard_error": 0.06133716211405251
+        },
+        "average_precision": {
+          "estimate": -0.028466594467825568,
+          "ci_lower": -0.19403583737296257,
+          "ci_upper": 0.07681637962810184,
+          "bootstrap_standard_error": 0.07119395148524231
+        },
+        "brier_score": {
+          "estimate": 0.016645737905684285,
+          "ci_lower": 0.01319008795923187,
+          "ci_upper": 0.021100720937953014,
+          "bootstrap_standard_error": 0.002062291275813312
+        },
+        "sensitivity": {
+          "estimate": -0.017816204886356157,
+          "ci_lower": -0.22841422676360779,
+          "ci_upper": 0.19054169122944914,
+          "bootstrap_standard_error": 0.1074688640919408
+        },
+        "specificity": {
+          "estimate": -0.04094263980585877,
+          "ci_lower": -0.08071941977389956,
+          "ci_upper": 0.002404789486737502,
+          "bootstrap_standard_error": 0.02165406703128598
+        },
+        "ppv": {
+          "estimate": -0.007345240657054747,
+          "ci_lower": -0.10420140099848355,
+          "ci_upper": 0.08387091334114097,
+          "bootstrap_standard_error": 0.04802752225433586
+        },
+        "alerts_per_100": {
+          "estimate": 4.019895370957514,
+          "ci_lower": -0.4822194479673067,
+          "ci_upper": 8.148789235890929,
+          "bootstrap_standard_error": 2.1581859343883947
+        }
+      }
+    },
+    "age_group::50-69__vs__70-89": {
+      "subgroup_name": "age_group",
+      "group_a": "50-69",
+      "group_b": "70-89",
+      "rows_a": 4211,
+      "rows_b": 4360,
+      "positives_a": 332,
+      "positives_b": 462,
+      "random_state": 51,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.037756128299528235,
+          "ci_lower": -0.004932998101326502,
+          "ci_upper": 0.08051819630201595,
+          "bootstrap_standard_error": 0.021548911544050395
+        },
+        "average_precision": {
+          "estimate": -0.0005430996844322244,
+          "ci_lower": -0.037178143273530743,
+          "ci_upper": 0.03881330870589468,
+          "bootstrap_standard_error": 0.019799729310510234
+        },
+        "brier_score": {
+          "estimate": -0.023052303559858087,
+          "ci_lower": -0.025102854989185762,
+          "ci_upper": -0.021053099284001783,
+          "bootstrap_standard_error": 0.0010400410705186794
+        },
+        "sensitivity": {
+          "estimate": -0.07258905752881656,
+          "ci_lower": -0.14205099619256245,
+          "ci_upper": -0.004331612162937586,
+          "bootstrap_standard_error": 0.034671891803818626
+        },
+        "specificity": {
+          "estimate": 0.12203011016549759,
+          "ci_lower": 0.10380373506101911,
+          "ci_upper": 0.13922491468777615,
+          "bootstrap_standard_error": 0.008812128215243612
+        },
+        "ppv": {
+          "estimate": 0.02465204763200951,
+          "ci_lower": -0.00631781994062566,
+          "ci_upper": 0.05587437064378488,
+          "bootstrap_standard_error": 0.016118181759883523
+        },
+        "alerts_per_100": {
+          "estimate": -12.253790313268654,
+          "ci_lower": -13.958382534602471,
+          "ci_upper": -10.47956422563012,
+          "bootstrap_standard_error": 0.8635679535784895
+        }
+      }
+    },
+    "age_group::50-69__vs__90+": {
+      "subgroup_name": "age_group",
+      "group_a": "50-69",
+      "group_b": "90+",
+      "rows_a": 4211,
+      "rows_b": 272,
+      "positives_a": 332,
+      "positives_b": 33,
+      "random_state": 52,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.05271274992172881,
+          "ci_lower": -0.05180610772574304,
+          "ci_upper": 0.1653172244453549,
+          "bootstrap_standard_error": 0.056126985930242485
+        },
+        "average_precision": {
+          "estimate": -0.07184148762390732,
+          "ci_lower": -0.21634265048027632,
+          "ci_upper": 0.0313363573951826,
+          "bootstrap_standard_error": 0.0647545451232931
+        },
+        "brier_score": {
+          "estimate": -0.03250663874302602,
+          "ci_lower": -0.03847638712607894,
+          "ci_upper": -0.0257247454487829,
+          "bootstrap_standard_error": 0.0032819270848743884
+        },
+        "sensitivity": {
+          "estimate": -0.12020810514786417,
+          "ci_lower": -0.2928075940124133,
+          "ci_upper": 0.05221796276013142,
+          "bootstrap_standard_error": 0.09020789665147856
+        },
+        "specificity": {
+          "estimate": 0.13277588473930546,
+          "ci_lower": 0.07869822054383604,
+          "ci_upper": 0.19000645574658523,
+          "bootstrap_standard_error": 0.028273668480331703
+        },
+        "ppv": {
+          "estimate": -0.007948625830788592,
+          "ci_lower": -0.08216931708439461,
+          "ci_upper": 0.06435440193972615,
+          "bootstrap_standard_error": 0.03738839027301206
+        },
+        "alerts_per_100": {
+          "estimate": -14.025242013214688,
+          "ci_lower": -19.54110688742369,
+          "ci_upper": -8.593215248578653,
+          "bootstrap_standard_error": 2.7200663049802274
+        }
+      }
+    },
+    "age_group::50-69__vs__<50": {
+      "subgroup_name": "age_group",
+      "group_a": "50-69",
+      "group_b": "<50",
+      "rows_a": 4211,
+      "rows_b": 1653,
+      "positives_a": 332,
+      "positives_b": 115,
+      "random_state": 53,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": -0.012320569810631121,
+          "ci_lower": -0.0698314686823047,
+          "ci_upper": 0.04877974786144445,
+          "bootstrap_standard_error": 0.030334843359951732
+        },
+        "average_precision": {
+          "estimate": 0.016268356284713653,
+          "ci_lower": -0.047124338116506743,
+          "ci_upper": 0.07111739442958892,
+          "bootstrap_standard_error": 0.02999126400796731
+        },
+        "brier_score": {
+          "estimate": 0.007027507964136967,
+          "ci_lower": 0.004709040645345411,
+          "ci_upper": 0.0095472006052693,
+          "bootstrap_standard_error": 0.0012343739212037595
+        },
+        "sensitivity": {
+          "estimate": 0.1430330015715034,
+          "ci_lower": 0.05272393923520169,
+          "ci_upper": 0.2306790204295442,
+          "bootstrap_standard_error": 0.045509896343483694
+        },
+        "specificity": {
+          "estimate": -0.04183005352753033,
+          "ci_lower": -0.05912539713190062,
+          "ci_upper": -0.02473192234803723,
+          "bootstrap_standard_error": 0.008915974567933046
+        },
+        "ppv": {
+          "estimate": 0.038734863714993684,
+          "ci_lower": -0.02316392794016684,
+          "ci_upper": 0.09705274847250023,
+          "bootstrap_standard_error": 0.03067335597507837
+        },
+        "alerts_per_100": {
+          "estimate": 5.0835085650565475,
+          "ci_lower": 3.3086241878248472,
+          "ci_upper": 6.78051054026537,
+          "bootstrap_standard_error": 0.892427897288223
+        }
+      }
+    },
+    "age_group::70-89__vs__90+": {
+      "subgroup_name": "age_group",
+      "group_a": "70-89",
+      "group_b": "90+",
+      "rows_a": 4360,
+      "rows_b": 272,
+      "positives_a": 462,
+      "positives_b": 33,
+      "random_state": 54,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.014956621622200572,
+          "ci_lower": -0.09434502271888305,
+          "ci_upper": 0.12677311267791103,
+          "bootstrap_standard_error": 0.055549422206742
+        },
+        "average_precision": {
+          "estimate": -0.0712983879394751,
+          "ci_lower": -0.21492355803243365,
+          "ci_upper": 0.027224876660060602,
+          "bootstrap_standard_error": 0.0629407443429138
+        },
+        "brier_score": {
+          "estimate": -0.009454335183167933,
+          "ci_lower": -0.015406569557483596,
+          "ci_upper": -0.0026123706941658027,
+          "bootstrap_standard_error": 0.0032545047788366537
+        },
+        "sensitivity": {
+          "estimate": -0.047619047619047616,
+          "ci_lower": -0.2316558441558441,
+          "ci_upper": 0.1255411255411255,
+          "bootstrap_standard_error": 0.09072149143142093
+        },
+        "specificity": {
+          "estimate": 0.010745774573807876,
+          "ci_lower": -0.047320989628840855,
+          "ci_upper": 0.06898720725787932,
+          "bootstrap_standard_error": 0.02927429305167601
+        },
+        "ppv": {
+          "estimate": -0.0326006734627981,
+          "ci_lower": -0.10254440560770976,
+          "ci_upper": 0.03631755748982907,
+          "bootstrap_standard_error": 0.03620923112363949
+        },
+        "alerts_per_100": {
+          "estimate": -1.7714516999460344,
+          "ci_lower": -7.2412978953049025,
+          "ci_upper": 3.6729964921748515,
+          "bootstrap_standard_error": 2.8261632809688053
+        }
+      }
+    },
+    "age_group::70-89__vs__<50": {
+      "subgroup_name": "age_group",
+      "group_a": "70-89",
+      "group_b": "<50",
+      "rows_a": 4360,
+      "rows_b": 1653,
+      "positives_a": 462,
+      "positives_b": 115,
+      "random_state": 55,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": -0.05007669811015936,
+          "ci_lower": -0.10987127645142578,
+          "ci_upper": 0.008879129626745188,
+          "bootstrap_standard_error": 0.029916983750964795
+        },
+        "average_precision": {
+          "estimate": 0.016811455969145878,
+          "ci_lower": -0.043729932061420965,
+          "ci_upper": 0.06476784960324714,
+          "bootstrap_standard_error": 0.027996001677736287
+        },
+        "brier_score": {
+          "estimate": 0.030079811523995054,
+          "ci_lower": 0.027769248431768728,
+          "ci_upper": 0.032576119052748494,
+          "bootstrap_standard_error": 0.0012463046803231244
+        },
+        "sensitivity": {
+          "estimate": 0.21562205910031995,
+          "ci_lower": 0.12661302465650293,
+          "ci_upper": 0.29795125164690384,
+          "bootstrap_standard_error": 0.04392301224551181
+        },
+        "specificity": {
+          "estimate": -0.16386016369302792,
+          "ci_lower": -0.1819288224897433,
+          "ci_upper": -0.14489198221754884,
+          "bootstrap_standard_error": 0.009600464224212377
+        },
+        "ppv": {
+          "estimate": 0.014082816082984173,
+          "ci_lower": -0.0426707779598208,
+          "ci_upper": 0.06583455471800642,
+          "bootstrap_standard_error": 0.02871481785120748
+        },
+        "alerts_per_100": {
+          "estimate": 17.3372988783252,
+          "ci_lower": 15.405901211031372,
+          "ci_upper": 19.120403478246388,
+          "bootstrap_standard_error": 0.9342514401594438
+        }
+      }
+    },
+    "age_group::90+__vs__<50": {
+      "subgroup_name": "age_group",
+      "group_a": "90+",
+      "group_b": "<50",
+      "rows_a": 272,
+      "rows_b": 1653,
+      "positives_a": 33,
+      "positives_b": 115,
+      "random_state": 56,
+      "difference_definition": "group_a_minus_group_b",
+      "metrics": {
+        "roc_auc": {
+          "estimate": -0.06503331973235993,
+          "ci_lower": -0.1794241071851327,
+          "ci_upper": 0.05447395118971733,
+          "bootstrap_standard_error": 0.05859272632430377
+        },
+        "average_precision": {
+          "estimate": 0.08810984390862098,
+          "ci_lower": -0.020619092835890376,
+          "ci_upper": 0.23102938458076044,
+          "bootstrap_standard_error": 0.06610011527229541
+        },
+        "brier_score": {
+          "estimate": 0.03953414670716299,
+          "ci_lower": 0.03266306233581345,
+          "ci_upper": 0.04539581625172827,
+          "bootstrap_standard_error": 0.0032846876547988546
+        },
+        "sensitivity": {
+          "estimate": 0.26324110671936757,
+          "ci_lower": 0.08985507246376809,
+          "ci_upper": 0.4454216073781286,
+          "bootstrap_standard_error": 0.0920993270641362
+        },
+        "specificity": {
+          "estimate": -0.1746059382668358,
+          "ci_lower": -0.2305846722636037,
+          "ci_upper": -0.11667872746761265,
+          "bootstrap_standard_error": 0.029007903198516198
+        },
+        "ppv": {
+          "estimate": 0.046683489545782275,
+          "ci_lower": -0.032442758869634256,
+          "ci_upper": 0.13492270881064466,
+          "bootstrap_standard_error": 0.04386357899311969
+        },
+        "alerts_per_100": {
+          "estimate": 19.108750578271234,
+          "ci_lower": 13.598715348208248,
+          "ci_upper": 24.443130360129526,
+          "bootstrap_standard_error": 2.776415578521868
+        }
+      }
+    }
+  },
+  "prediction_artifact": {
+    "path": "artifacts\\predictions\\phase7_calibration_candidate_probabilities.csv",
+    "sha256": "8160832b3352ba4d693bbf2df1541c30b705a5db155017675440e729589fa6df"
+  },
+  "output_table": "reports\\tables\\phase10_validation_subgroup_differences.csv",
+  "data_policy": {
+    "evaluation_split": "validation",
+    "test_used": false
+  }
+}
