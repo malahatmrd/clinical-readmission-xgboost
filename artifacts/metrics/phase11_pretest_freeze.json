@@ -1,0 +1,88 @@
+{
+  "phase": 11,
+  "stage": "pretest_freeze",
+  "freeze_state": {
+    "git_branch": "main",
+    "git_commit": "135936db144f8ff878c40f764be2a5ed92acf803",
+    "origin_main_commit": "135936db144f8ff878c40f764be2a5ed92acf803",
+    "head_matches_origin_main": true,
+    "worktree_clean_before_manifest": true
+  },
+  "frozen_model": {
+    "name": "tuned_xgboost_sigmoid",
+    "base_model_family": "tuned_xgboost",
+    "tree_count": 155,
+    "hyperparameters": {
+      "n_estimators": 400,
+      "learning_rate": 0.03,
+      "max_depth": 5,
+      "min_child_weight": 1.0,
+      "subsample": 1.0,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.1,
+      "reg_lambda": 2.0,
+      "scale_pos_weight": 1.5
+    },
+    "calibration": {
+      "method": "sigmoid",
+      "fit_data": "train_only",
+      "cv_strategy": "StratifiedKFold",
+      "cv_splits": 5,
+      "cv_random_state": 48,
+      "ensemble": false
+    },
+    "reference_threshold": 0.105,
+    "threshold_scenario": "moderate_capacity"
+  },
+  "locked_test": {
+    "split": "test",
+    "encounters": 10496,
+    "positive_30d": 941,
+    "negative_30d": 9555,
+    "assignment_sha256": "e8201f2f411995f47fb5b525061762dca8cd65831578f12fa9ce2eff05bc9482",
+    "source_cohort_sha256": "f1de76f15beed99c154e81c078b99b3840b95aae01e18354b570363d8cc8ddd8",
+    "row_level_assignment_read_by_this_script": false,
+    "test_rows_read_by_this_script": false,
+    "test_predictions_generated": false,
+    "test_metrics_calculated": false
+  },
+  "development_history": {
+    "phase7_test_used": false,
+    "phase8_test_used": false,
+    "phase10_subgroup_test_used": false,
+    "phase10_robustness_test_used": false
+  },
+  "environment": {
+    "python": "3.12.9",
+    "numpy": "2.4.6",
+    "pandas": "3.0.5",
+    "scikit_learn": "1.9.0",
+    "xgboost": "3.4.0",
+    "shap": "0.52.0"
+  },
+  "source_file_sha256": {
+    "pyproject.toml": "3d43f9d8babb54edb8b07d5208a3b3c507d08580b629e64aa29f880e9fca6cd3",
+    "requirements-lock.txt": "920d57820764224d9b54d49262d54717987d70bbd6a880476f46508d28bcd1f2",
+    "configs/data.yaml": "17047efcec75b8071f4adc05634c88e482e277fd8a82f69ad45a7c626fac1087",
+    "docs/split_protocol.md": "c3c2d8e2cab10506db937b8179b5500bd8b853ec97ce94e0ee406ce24f87e0b1",
+    "artifacts/metrics/primary_split_manifest.json": "c129e681ffdce97afd7f36519005f9e7e0a8cc4d7c663c29f89c93ee710e866d",
+    "artifacts/metrics/xgboost_tuned_validation.json": "8c1f8b488cc32ae9551548e1ddf314cc4c43f2e851839dad4872f0a966aa504f",
+    "artifacts/metrics/phase7_calibration_candidates_validation.json": "26c5b7fe25d31217e688ac9bf9b5ccce8583790626cde00ea0dad113e896ca8c",
+    "artifacts/metrics/phase8_threshold_selection.json": "e169c06e5c932b74c4f2ae8d65d67e010dd615a82345d9600b052157632098ad",
+    "artifacts/metrics/phase10_subgroup_validation.json": "863bd5ab82f1fd4931764fdd774b1d83c45da543950bbe3b6f26fda1ebec300f",
+    "artifacts/metrics/phase10_cluster_bootstrap.json": "bb826302325ae635e9b35025f99af474ae51cb87dadc236a7a6b7f8fa8ab1537",
+    "src/clinical_readmission/features/preprocessing.py": "39e553e7b3ff29e5b80e28cbb06e93edcdddc72f5fa06b0436f59c8db09843c7",
+    "src/clinical_readmission/models/xgboost_tuned.py": "cbc8517f1696d33304cd858bb62ebe98c64a54194385d44b22f4913717d371e3",
+    "src/clinical_readmission/evaluation/calibration_models.py": "574c05a5adeac58600846c3492e9f15c762925d8e4918a375de722495bf0307f",
+    "src/clinical_readmission/evaluation/metrics.py": "01fa728a2a5791ae0911d7ceac1a32e838ad94a148643c188ba86fe281072235",
+    "src/clinical_readmission/evaluation/thresholds.py": "3bf6ecd700ec2697484fd3dd1d334741c7f7f9440fdfdd9fa6b3f34bd3117428",
+    "scripts/build_phase11_pretest_freeze.py": "eacd4aac793f4e4fafdf4743b6c770fce65f7a6efc33b35de3c8a89b58cf811d"
+  },
+  "test_access_policy": {
+    "development_complete": true,
+    "model_reselection_after_test": false,
+    "calibration_reselection_after_test": false,
+    "threshold_reselection_after_test": false,
+    "test_role": "one_time_final_locked_evaluation"
+  }
+}
