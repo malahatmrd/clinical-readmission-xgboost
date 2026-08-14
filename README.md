@@ -257,7 +257,7 @@ Current status:
 - [x] Phase 8 - validation-only threshold selection
 - [x] Phase 9 - SHAP explainability
 - [x] Phase 10 — subgroup and robustness analysis
-- [ ] - [ ] Phase 11 — final model card and reproducibility release
+- [ ] Phase 11 — final model card and reproducibility release
 
 ## Subgroup and Robustness Analysis
 
