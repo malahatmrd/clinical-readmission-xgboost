@@ -1,0 +1,149 @@
+{
+  "phase": 11,
+  "stage": "locked_test_bootstrap",
+  "analysis_role": "uncertainty_characterization_after_final_locked_test",
+  "source_evaluation": {
+    "path": "artifacts\\metrics\\phase11_locked_test_evaluation.json",
+    "commit": "3551c215dadc65930e11865ca062ff18e1f107b6"
+  },
+  "prediction_artifact": {
+    "path": "artifacts\\predictions\\phase11_locked_test_probabilities.csv",
+    "sha256": "0cf871718e65a049cf76b00d074e33ea315745e0e9cfbb61961399e64b2a68a9",
+    "rows": 10496,
+    "committed_to_git": false,
+    "identifiers_saved": false
+  },
+  "frozen_configuration": {
+    "model": "tuned_xgboost_sigmoid",
+    "threshold": 0.105,
+    "model_reselected": false,
+    "calibration_reselected": false,
+    "threshold_reselected": false
+  },
+  "bootstrap_protocol": {
+    "method": "stratified_bootstrap_with_replacement",
+    "unit": "primary_test_encounter_one_per_patient",
+    "prevalence_preserved": true,
+    "n_resamples": 2000,
+    "random_state": 47,
+    "confidence_level": 0.95,
+    "interval_method": "percentile"
+  },
+  "sample_counts": {
+    "test": 10496,
+    "positive": 941,
+    "negative": 9555
+  },
+  "point_estimate_reproduction": {
+    "passed": true,
+    "tolerance": 1e-10
+  },
+  "metrics": {
+    "roc_auc": {
+      "estimate": 0.6654843511834556,
+      "ci_lower": 0.6469619549773642,
+      "ci_upper": 0.6825621033993586,
+      "bootstrap_standard_error": 0.00946878810809836
+    },
+    "average_precision": {
+      "estimate": 0.19544132443740658,
+      "ci_lower": 0.17714685062064578,
+      "ci_upper": 0.21725006520895507,
+      "bootstrap_standard_error": 0.010500100274224912
+    },
+    "brier_score": {
+      "estimate": 0.07817835071528761,
+      "ci_lower": 0.07733705456915088,
+      "ci_upper": 0.07905602634875755,
+      "bootstrap_standard_error": 0.000451773381723124
+    },
+    "log_loss": {
+      "estimate": 0.28571068732785904,
+      "ci_lower": 0.2826099737995,
+      "ci_upper": 0.2889723375720288,
+      "bootstrap_standard_error": 0.0016653176693760844
+    },
+    "calibration_intercept": {
+      "estimate": 0.24166119020570814,
+      "ci_lower": -0.007358147913994263,
+      "ci_upper": 0.48916477394518326,
+      "bootstrap_standard_error": 0.12759904377351505
+    },
+    "calibration_slope": {
+      "estimate": 1.1057367215033644,
+      "ci_lower": 0.9942316710770968,
+      "ci_upper": 1.2141972192267312,
+      "bootstrap_standard_error": 0.05722458439456025
+    },
+    "quantile_ece": {
+      "estimate": 0.011244633243690929,
+      "ci_lower": 0.009010576182993791,
+      "ci_upper": 0.017293722638670836,
+      "bootstrap_standard_error": 0.002115194715406389
+    },
+    "sensitivity": {
+      "estimate": 0.38788522848034007,
+      "ci_lower": 0.35600425079702447,
+      "ci_upper": 0.41870350690754515,
+      "bootstrap_standard_error": 0.016149922326081746
+    },
+    "specificity": {
+      "estimate": 0.8322344322344323,
+      "ci_lower": 0.8246991104133962,
+      "ci_upper": 0.839665096807954,
+      "bootstrap_standard_error": 0.0038395206937372754
+    },
+    "ppv": {
+      "estimate": 0.18546747967479674,
+      "ci_lower": 0.17161505406443658,
+      "ci_upper": 0.19908888918918088,
+      "bootstrap_standard_error": 0.007097087304454897
+    },
+    "npv": {
+      "estimate": 0.9324577861163227,
+      "ci_lower": 0.92918266371557,
+      "ci_upper": 0.9356776874825548,
+      "bootstrap_standard_error": 0.0016795360465568202
+    },
+    "f1": {
+      "estimate": 0.25094534204193875,
+      "ci_lower": 0.2322642424172327,
+      "ci_upper": 0.26912546470403764,
+      "bootstrap_standard_error": 0.009590713200354383
+    },
+    "balanced_accuracy": {
+      "estimate": 0.6100598303573862,
+      "ci_lower": 0.5941031160277404,
+      "ci_upper": 0.6257950558626132,
+      "bootstrap_standard_error": 0.00825101223170559
+    },
+    "alerts_per_100": {
+      "estimate": 18.75,
+      "ci_lower": 18.03544207317073,
+      "ci_upper": 19.51219512195122,
+      "bootstrap_standard_error": 0.3818158201585805
+    },
+    "number_needed_to_evaluate": {
+      "estimate": 5.391780821917808,
+      "ci_lower": 5.022882153735429,
+      "ci_upper": 5.826994640509657,
+      "bootstrap_standard_error": 0.20846376744818454
+    },
+    "model_net_benefit": {
+      "estimate": 0.016857712222373623,
+      "ci_lower": 0.013944604595312712,
+      "ci_upper": 0.01968879871235863,
+      "bootstrap_standard_error": 0.0014944803171095563
+    }
+  },
+  "data_policy": {
+    "model_refit": false,
+    "new_test_predictions": false,
+    "test_prediction_artifact_reused": true,
+    "model_reselected": false,
+    "calibration_reselected": false,
+    "threshold_reselected": false,
+    "test_metrics_used_for_selection": false
+  },
+  "output_table": "reports\\tables\\phase11_locked_test_bootstrap.csv"
+}
