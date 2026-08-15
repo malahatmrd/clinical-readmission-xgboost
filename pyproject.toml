@@ -2,15 +2,28 @@
 requires = ["setuptools>=75", "wheel"]
 build-backend = "setuptools.build_meta"
 
+
 [project]
 name = "clinical-readmission-xgboost"
 version = "0.1.0"
-description = "Leakage-aware and reliable 30-day hospital readmission prediction with XGBoost."
+description = "Leakage-aware and reproducible 30-day hospital readmission prediction with XGBoost."
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
 license = "MIT"
+
 authors = [
     { name = "malahatmrd" }
+]
+
+keywords = [
+    "clinical-machine-learning",
+    "medical-ai",
+    "readmission-prediction",
+    "xgboost",
+    "probability-calibration",
+    "explainable-ai",
+    "shap",
+    "reproducible-research",
 ]
 
 dependencies = [
@@ -23,26 +36,38 @@ dependencies = [
     "matplotlib==3.11.1",
     "PyYAML==6.0.3",
     "joblib==1.5.3",
-    "ucimlrepo==0.0.7"
+    "ucimlrepo==0.0.7",
 ]
+
+
+[project.urls]
+Homepage = "https://github.com/malahatmrd/clinical-readmission-xgboost"
+Repository = "https://github.com/malahatmrd/clinical-readmission-xgboost"
+Documentation = "https://github.com/malahatmrd/clinical-readmission-xgboost/tree/main/docs"
+Issues = "https://github.com/malahatmrd/clinical-readmission-xgboost/issues"
+
 
 [project.optional-dependencies]
 dev = [
     "pytest==9.1.1",
-    "ruff==0.16.2"
+    "ruff==0.16.2",
 ]
+
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
 addopts = "-ra"
 
+
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "B"]

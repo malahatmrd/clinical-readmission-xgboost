@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this research software, please cite it using these metadata."
+
+title: "Clinical Readmission Prediction with XGBoost"
+type: software
+version: "0.1.0"
+
+authors:
+  - name: "malahatmrd"
+
+abstract: >-
+  A leakage-aware and reproducible clinical machine-learning pipeline for
+  predicting 30-day hospital readmission using the Diabetes 130-US Hospitals
+  dataset. The project includes patient-independent cohort construction,
+  XGBoost optimization, probability calibration, validation-only threshold
+  selection, SHAP explainability, subgroup and repeated-encounter robustness
+  analyses, and a final locked Test evaluation with bootstrap uncertainty.
+
+repository-code: "https://github.com/malahatmrd/clinical-readmission-xgboost"
+
+license: MIT
+
+keywords:
+  - clinical machine learning
+  - medical AI
+  - readmission prediction
+  - XGBoost
+  - probability calibration
+  - explainable AI
+  - SHAP
+  - reproducible research
