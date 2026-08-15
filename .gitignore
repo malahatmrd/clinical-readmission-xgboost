@@ -77,3 +77,6 @@ credentials.json
 *.log
 tmp/
 temp/
+
+# Locked final Test row-level predictions stay local
+artifacts/predictions/phase11_locked_test_probabilities.csv
