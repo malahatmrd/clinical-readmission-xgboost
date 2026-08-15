@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "clinical-readmission-xgboost"
-version = "0.1.0"
+version = "1.0.0"
 description = "Leakage-aware and reproducible 30-day hospital readmission prediction with XGBoost."
 readme = "README.md"
 requires-python = ">=3.12,<3.13"

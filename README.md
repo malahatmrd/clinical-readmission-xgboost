@@ -1,302 +1,193 @@
 # Clinical Readmission Prediction with XGBoost
 
-Reliable, leakage-aware, and reproducible prediction of 30-day hospital
-readmission using real-world clinical encounter data.
+A leakage-aware and reproducible clinical machine-learning pipeline for
+predicting 30-day hospital readmission using structured hospital encounter data.
 
-## Project Goal
+The project emphasizes rigorous cohort construction, patient-independent data
+splitting, probability calibration, validation-only threshold selection,
+explainability, subgroup analysis, robustness evaluation, and a one-time locked
+Test assessment.
 
-This project develops a research-oriented medical machine-learning
-pipeline for predicting hospital readmission within 30 days.
+> **Research use only.** This model has not undergone external or prospective
+> clinical validation and is not intended for clinical deployment.
 
-The emphasis is not only on predictive performance, but also on:
+## Final Model
 
-- reproducibility
-- clinical cohort definition
-- leakage prevention
-- data-quality auditing
-- class-imbalance handling
-- probability calibration
-- threshold analysis
-- explainability
-- subgroup evaluation
-- robustness analysis
-- automated testing
+Final model:
+
+`tuned_xgboost_sigmoid`
+
+Configuration:
+
+- tuned XGBoost classifier
+- 155 boosting trees
+- Train-only sigmoid calibration
+- reference threshold: `0.105`
+- prediction timing: at or near discharge
+
+The model, calibration procedure, and threshold were frozen before the held-out
+Test set was accessed.
+
+## Final Locked Test Results
+
+Test cohort:
+
+- encounters: 10,496
+- positive 30-day readmissions: 941
+- prevalence: 8.97%
+
+| Metric | Estimate | 95% Bootstrap CI |
+|---|---:|---:|
+| ROC-AUC | 0.6655 | 0.6470–0.6826 |
+| Average precision | 0.1954 | 0.1771–0.2173 |
+| Brier score | 0.0782 | 0.0773–0.0791 |
+| Log loss | 0.2857 | 0.2826–0.2890 |
+| Calibration intercept | 0.2417 | -0.0074–0.4892 |
+| Calibration slope | 1.1057 | 0.9942–1.2142 |
+| Sensitivity | 0.3879 | 0.3560–0.4187 |
+| Specificity | 0.8322 | 0.8247–0.8397 |
+| PPV | 0.1855 | 0.1716–0.1991 |
+| NPV | 0.9325 | 0.9292–0.9357 |
+| Alerts per 100 | 18.75 | 18.04–19.51 |
+| Model net benefit | 0.0169 | 0.0139–0.0197 |
+
+Uncertainty was estimated with 2,000 stratified bootstrap resamples using
+a fixed model and fixed threshold.
+
+No model refitting, probability recalibration, feature reselection, or
+threshold reselection was performed after Test access.
 
 ## Dataset
 
-Diabetes 130-US Hospitals for Years 1999-2008 from the UCI Machine
-Learning Repository.
+The project uses the **Diabetes 130-US Hospitals for Years 1999-2008**
+dataset from the UCI Machine Learning Repository.
 
-Validated raw snapshot:
+Raw dataset:
 
-| Property | Value |
-|---|---:|
-| Encounters | 101,766 |
-| Unique patients | 71,518 |
-| Predictive features | 47 |
-| Positive `<30` outcomes | 11,357 |
-| Raw positive rate | 11.16% |
+- 101,766 encounters
+- 71,518 unique patients
+- 11,357 readmissions within 30 days
+- raw prevalence: 11.16%
 
-Detailed dataset documentation:
+Primary modeling cohort:
 
-`docs/data_card.md`
+- 69,973 encounters
+- 69,973 unique patients
+- 6,277 positive outcomes
+- prevalence: 8.97%
 
-## Target
+The primary analysis retains one encounter per patient and excludes terminal
+and hospice discharge dispositions.
 
-Positive class:
+Dataset DOI:
 
-`readmitted == "<30"`
+`10.24432/C5230J`
 
-Negative class:
+See:
 
-`readmitted == "NO"` or `readmitted == ">30"`
+- `docs/data_card.md`
+- `docs/cohort_definition.md`
+- `DATA_LICENSE.md`
 
-The modeling target is stored as:
+## Data Split
 
-`readmitted_30d`
-
-## Clinical Cohort
-
-The primary cohort is constructed before model development.
-
-Primary cohort:
-
-| Property | Value |
-|---|---:|
-| Encounters | 69,973 |
-| Unique patients | 69,973 |
-| Positive readmissions | 6,277 |
-| Positive rate | 8.97% |
-
-Construction:
-
-1. start with 101,766 raw encounters
-2. retain first observed encounter per patient
-3. obtain 71,518 patient-independent encounters
-4. exclude terminal and hospice dispositions
-5. obtain 69,973 primary encounters
-
-Additional robustness cohorts:
-
-- first eligible encounter per patient: 69,990
-- all eligible encounters: 99,343 encounters across 69,990 patients
-
-Detailed methodology:
-
-`docs/cohort_definition.md`
-
-## Leakage Prevention
-
-The UCI dataset exposes `encounter_id` and `patient_nbr` separately from
-predictive features.
-
-Neither identifier is allowed as a predictive model input.
-
-For analyses retaining repeated encounters, data splitting must be grouped
-by `patient_nbr` so that a patient cannot appear in more than one split.
-
-All preprocessing, feature transformation, model tuning, calibration,
-and threshold selection will be learned without using the held-out test set.
-
-## Primary Data Split
-
-The primary cohort is partitioned into stratified train, validation, and
-locked test sets.
-
-| Split | Encounters | Positive Rate |
+| Split | Encounters | Positive outcomes |
 |---|---:|---:|
-| Train | 48,981 | 8.971% |
-| Validation | 10,496 | 8.975% |
-| Test | 10,496 | 8.965% |
+| Train | 48,981 | 4,394 |
+| Validation | 10,496 | 942 |
+| Test | 10,496 | 941 |
 
-The test partition is locked after creation and is not used for
-preprocessing decisions, feature selection, hyperparameter tuning,
-calibration fitting, or threshold selection.
+The Test partition was locked during:
 
-Build the reproducible split with:
+- preprocessing development
+- model selection
+- hyperparameter tuning
+- calibration selection
+- threshold selection
+- SHAP analysis
+- subgroup analysis
+- robustness analysis
 
-    python scripts/build_primary_split.py
+See `docs/split_protocol.md`.
 
-Detailed protocol:
+## Modeling Pipeline
 
-docs/split_protocol.md
+The development workflow includes:
 
-## Data Acquisition
+1. dataset acquisition and integrity checks
+2. clinical cohort definition
+3. leakage-safe Train/Validation/Test splitting
+4. preprocessing and logistic-regression baseline
+5. XGBoost baseline development
+6. imbalance analysis and hyperparameter optimization
+7. probability calibration
+8. validation-only operating-threshold selection
+9. SHAP explainability
+10. subgroup and repeated-encounter robustness analysis
+11. frozen final Test evaluation and uncertainty estimation
 
-Download the dataset with:
+The final preprocessing representation contains 225 transformed model
+features.
 
-    python -m clinical_readmission.data.download
+Patient and encounter identifiers are excluded from predictive inputs.
 
-Raw data are stored under:
+## Prediction Timing
 
-`data/raw/`
+`discharge_disposition_id` is included in the final feature set and is the
+largest source-level SHAP contributor.
 
-Patient-level raw files are excluded from Git.
+The model must therefore be interpreted as an **at-discharge or
+near-discharge risk model**, not as an admission-time prediction model.
 
-## Data Validation
+## Explainability
 
-Run:
+SHAP analysis was performed on the Validation partition before Test access.
 
-    python scripts/validate_data.py
+Leading source-level contributors included:
 
-Validation includes:
+1. `discharge_disposition_id`
+2. `number_inpatient`
+3. `time_in_hospital`
+4. `diag_1`
+5. `payer_code`
+6. `age`
+7. `diabetesMed`
+8. `number_diagnoses`
 
-- expected row count
-- schema validation
-- identifier integrity
-- target validation
-- duplicate encounter detection
-- SHA-256 provenance
+SHAP values describe model dependence and must not be interpreted as causal
+effects.
 
-## Data Audits
-
-Raw dataset audit:
-
-    python scripts/audit_raw_data.py
-
-Feature-quality audit:
-
-    python scripts/audit_features.py
-
-Discharge-disposition audit:
-
-    python scripts/audit_discharge_dispositions.py
-
-Cohort-rule audit:
-
-    python scripts/audit_cohort_rules.py
-
-Cohort reconciliation audit:
-
-    python scripts/audit_cohort_reconciliation.py
-
-Temporal-consistency audit:
-
-    python scripts/audit_temporal_consistency.py
-
-## Build Cohorts
-
-Run:
-
-    python scripts/build_cohorts.py
-
-Generated patient-level cohort files are stored under:
-
-`data/interim/cohorts/`
-
-These files are excluded from version control.
-
-## Repository Structure
-
-    clinical-readmission-xgboost/
-    ├── artifacts/
-    │   └── metrics/
-    ├── configs/
-    ├── data/
-    │   ├── raw/
-    │   ├── reference/
-    │   ├── interim/
-    │   └── processed/
-    ├── docs/
-    ├── reports/
-    │   ├── figures/
-    │   └── tables/
-    ├── scripts/
-    ├── src/
-    │   └── clinical_readmission/
-    ├── tests/
-    ├── pyproject.toml
-    ├── requirements.txt
-    └── requirements-lock.txt
-
-## Environment
-
-The project currently targets Python 3.12.
-
-Create and activate the environment:
-
-    py -3.12 -m venv .venv
-    .\.venv\Scripts\Activate.ps1
-
-Install dependencies:
-
-    python -m pip install --upgrade pip
-    python -m pip install -r requirements.txt
-    python -m pip install -e .
-
-## Testing
-
-Run:
-
-    pytest
-
-Current test suite:
-
-`111 passed`
-
-## Code Quality
-
-Run:
-
-    ruff check .
-
-Current status:
-
-`All checks passed!`
-
-## Project Roadmap
-
-- [x] Phase 0 — reproducible project bootstrap
-- [x] Phase 1 — data acquisition, provenance, and quality audit
-- [x] Phase 2 — clinical cohort definition and leakage controls
-- [x] Phase 3 - leakage-safe train/validation/test splitting
-- [x] Phase 4 - preprocessing and logistic-regression baseline
-- [x] Phase 5 - XGBoost training
-- [x] Phase 6 - class-imbalance and hyperparameter optimization
-- [x] Phase 7 - discrimination and calibration analysis
-- [x] Phase 8 - validation-only threshold selection
-- [x] Phase 9 - SHAP explainability
-- [x] Phase 10 — subgroup and robustness analysis
-- [ ] Phase 11 — final model card and reproducibility release
+See `docs/shap_explainability.md`.
 
 ## Subgroup and Robustness Analysis
 
-The frozen Validation model was evaluated across predefined gender, race, and
-age subgroups using bootstrap uncertainty estimates. No pairwise subgroup
-ROC-AUC comparison had a 95% confidence interval excluding zero, although the
-fixed reference threshold produced different operating characteristics across
-some groups, particularly age strata.
+Validation-only subgroup analyses evaluated:
 
-Repeated-encounter robustness analysis showed substantial case-mix and
-operating-point shift when all eligible encounters from the original
-Validation patients were included. Patient-cluster bootstrap confirmed these
-differences while preserving within-patient correlation.
+- gender
+- race
+- age
 
-No model, calibration, or threshold re-selection was performed, and the Test
-set remained locked.
+No evaluated pairwise subgroup ROC-AUC confidence interval provided clear
+evidence of a discrimination difference.
 
-Detailed methodology and results:
+However, the fixed threshold produced meaningfully different operating
+characteristics across age groups.
 
-`docs/subgroup_robustness.md`
+Repeated-encounter analysis also showed substantial shifts in prevalence,
+calibration, and alert burden.
 
-## Clinical and Reproducibility Limitations
+These analyses are exploratory and do not constitute fairness certification
+or external validation.
 
-This dataset is historical and observational.
+See `docs/subgroup_robustness.md`.
 
-The repository does not establish prospective clinical utility or
-transportability to other hospitals, populations, time periods, or
-healthcare systems.
+## Reproducibility
 
-A reproducibility discrepancy was identified between the current UCI
-snapshot and values reported for a reference-style cohort. The project
-documents this discrepancy rather than altering eligibility rules to
-force numerical agreement.
+Python version:
 
-## Disclaimer
+`3.12`
 
-This repository is intended for research, education, and portfolio
-demonstration.
+Create an environment:
 
-It is not a clinical decision-support system and must not be used for
-patient-care decisions without appropriate external validation,
-prospective evaluation, governance, and regulatory review.
+```bash
+python -m venv .venv
